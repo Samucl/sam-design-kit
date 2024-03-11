@@ -1,15 +1,12 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <main>
-        <h1>Content here</h1>
-      </main>
-    </Layout>
-  );
+  const history = useHistory();
+
+  useEffect(() => {
+    history.push('/docs/Components/Button');
+  }, [history]); // Depend on history to ensure it doesn't change
+
+  return (<></>);
 }
