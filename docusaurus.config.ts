@@ -37,7 +37,7 @@ const config: Config = {
           breadcrumbs: false,
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: './src/themes/main.css',
         },
       } satisfies Preset.Options,
     ],
@@ -45,11 +45,11 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: 'Sam Design Kit',
-      /* logo: {
+      title: 'SDK',
+      logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
-      }, */
+      },
     },
     breadcrumbs: {
       enabled: false, // Remove breadcrumbs
