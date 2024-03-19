@@ -1,0 +1,5 @@
+docusaurus.config.ts
+sidebars.ts
+node_modules
+static
+docs

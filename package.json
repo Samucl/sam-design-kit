@@ -1,11 +1,13 @@
 {
   "name": "sam-design-kit",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "main": "dist/bundle.js",
+  "types": "dist/index.d.ts",
+  "private": false,
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "rollup -c",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -28,6 +30,13 @@
     "@docusaurus/module-type-aliases": "3.1.1",
     "@docusaurus/tsconfig": "3.1.1",
     "@docusaurus/types": "3.1.1",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-url": "^8.0.2",
+    "rollup": "^4.13.0",
+    "rollup-plugin-copy": "^3.5.0",
     "typescript": "~5.2.2"
   },
   "browserslist": {
@@ -44,5 +53,8 @@
   },
   "engines": {
     "node": ">=18.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
