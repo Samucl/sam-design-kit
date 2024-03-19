@@ -5,6 +5,7 @@ const style = `color:${colors.primary};`
 
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
+    'GettingStarted',
     {
       type: 'html',
       value: `<div style=${style}>GUIDELINES</div>`,

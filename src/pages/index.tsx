@@ -5,7 +5,7 @@ export default function Home(): JSX.Element {
   const history = useHistory();
 
   useEffect(() => {
-    history.push('/docs/Components/Button');
+    history.push('/docs/GettingStarted');
   }, [history]); // Depend on history to ensure it doesn't change
 
   return (<></>);

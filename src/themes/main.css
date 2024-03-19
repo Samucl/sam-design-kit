@@ -59,13 +59,20 @@ aside {
   font-weight: 800 !important;
   margin-top: 20px;
 }
+
 .menu li a{
   font-weight: 700 !important;
   margin-left: 10px;
 }
 
+aside li:first-child a {
+  margin: 0;
+  margin-top: 20px;
+}
+
 ::selection{
   background-color: var(--sdk-color-highlight-primary);
+  color: var(--sdk-color-primary-dark);
 }
 
 :root {
