@@ -3,3 +3,5 @@ sidebars.ts
 node_modules
 static
 docs
+
+!src/components/**/*

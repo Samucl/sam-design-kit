@@ -1,13 +1,19 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "jsx": "react",
-    "module": "ESNext",
     "target": "ESNext",
+    "module": "ESNext",                                
+    "esModuleInterop": true,                                                     
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,                                    
+    "skipLibCheck": true,
+    "rootDir": ".",
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
   }
 }
