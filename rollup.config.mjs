@@ -48,7 +48,7 @@ export default [
     input: 'dist/cjs/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [
-      dts.default(),
+      dts(),
       del({ targets: 'dist/**/types/node_modules', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/docusaurus.config.d.ts', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/sidebars.d.ts', hook: 'buildStart'}),
