@@ -5,21 +5,21 @@ import dts from 'rollup-plugin-dts'
 import url from '@rollup/plugin-url';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
-
 import terser from '@rollup/plugin-terser'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import packageJson from './package.json' assert { type: 'json' };
 
 export default [
   {
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/cjs/index.js',
+        file: packageJson.main,
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: 'dist/es/bundle.js',
+        file: packageJson.module,
         format: 'esm',
         sourcemap: true,
       },
@@ -41,20 +41,18 @@ export default [
         ]
       }),
       terser(),
-      del({ targets: 'dist/*', hook: 'buildStart' }),
     ],
   },
   {
     input: 'dist/cjs/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [
-      dts.default(),
+      dts(),
       del({ targets: 'dist/**/types/node_modules', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/docusaurus.config.d.ts', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/sidebars.d.ts', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/src/pages', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/docs', hook: 'buildStart'}),
-    ],
-    external: [/\.css$/],
-  }, 
+    ]
+  }
 ]

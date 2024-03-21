@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -7,7 +6,7 @@ export default function Home(): JSX.Element {
 
   useEffect(() => {
     history.push('/docs/GettingStarted');
-  }, [history]); // Depend on history to ensure it doesn't change
+  }, [history]);
 
   return (<></>);
 }
