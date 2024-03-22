@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../themes';
+import '../../fonts/fonts.css';
 
 interface Props {
   message: string;
@@ -16,8 +17,13 @@ const StyledButton = styled.button`
   cursor: pointer;
 `
 
+const StyledHeader = styled.h1`
+  font-family: 'RethinkSans', sans-serif;
+  font-weight: 800;
+`
+
 const Button: React.FC<Props> = ({ message }) => {
-  return <><h1>Testi RethinkSans</h1><StyledButton>{message}</StyledButton></>;
+  return <><StyledHeader>Testi RethinkSans</StyledHeader><StyledButton>{message}</StyledButton></>;
 };
 
 export default Button;

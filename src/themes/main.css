@@ -1,42 +1,4 @@
-@font-face {
-  font-family: 'RethinkSans';
-  src: url('../fonts/RethinkSans-Regular-BF657912272f089.woff2') format('woff2'),
-       url('../fonts/RethinkSans-Regular-BF657912272f089.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'RethinkSans';
-  src: url('../fonts/RethinkSans-Medium-BF657912270969d.woff2') format('woff2'),
-       url('../fonts/RethinkSans-Medium-BF657912270969d.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'RethinkSans';
-  src: url('../fonts/RethinkSans-SemiBold-BF657912271e146.woff2') format('woff2'),
-       url('../fonts/RethinkSans-SemiBold-BF657912271e146.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'RethinkSans';
-  src: url('../fonts/RethinkSans-Bold-BF657912261fcc5.woff2') format('woff2'),
-       url('../fonts/RethinkSans-Bold-BF657912261fcc5.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'RethinkSans';
-  src: url('../fonts/RethinkSans-ExtraBold-BF657912264cc18.woff2') format('woff2'),
-       url('../fonts/RethinkSans-ExtraBold-BF657912264cc18.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-}
+@import '../fonts/fonts.css';
 
 :root{
   font-family: 'RethinkSans', sans-serif;

@@ -8,6 +8,7 @@ import del from 'rollup-plugin-delete';
 import terser from '@rollup/plugin-terser'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import packageJson from './package.json' assert { type: 'json' };
+import postcss from 'rollup-plugin-postcss';
 
 export default [
   {
@@ -40,6 +41,7 @@ export default [
           { src: 'src/fonts/*', dest: 'dist/fonts' }
         ]
       }),
+      postcss({ extensions: ['.css'], inject: true, extract: false }),
       terser(),
     ],
   },
@@ -53,6 +55,7 @@ export default [
       del({ targets: 'dist/**/types/sidebars.d.ts', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/src/pages', hook: 'buildStart'}),
       del({ targets: 'dist/**/types/docs', hook: 'buildStart'}),
-    ]
+    ],
+    external: [/\.css$/],
   }
 ]
