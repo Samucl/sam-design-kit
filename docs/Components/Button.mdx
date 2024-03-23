@@ -5,13 +5,30 @@ pagination_prev: null
 ---
 
 import { Button } from '../../src/components/Button';
+import Codeblock from './utils/Codeblock'
 
 <hr/>
 
-<p>Button asdasdasasdasd</p>
+<p>Button enables users to execute actions and make decisions with a simple click.</p>
 
 <hr/>
 
 ## Default
 
-<Button message="Tämä on testi" />
+<Codeblock>
+    <Button value="Default Button" />
+</Codeblock>
+
+```jsx
+<Button value="Default Button" />
+```
+
+## Dark
+
+<Codeblock>
+    <Button value="Dark Button" isDark={true}/>
+</Codeblock>
+
+```jsx
+<Button value="Default Button" isDark={true}/>
+```

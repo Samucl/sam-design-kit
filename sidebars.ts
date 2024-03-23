@@ -1,7 +1,7 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
-import { colors } from './src/themes'
+import { themes } from './src/themes'
 
-const style = `color:${colors.primary};`
+const style = `color:${themes.colors.primary};`
 
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [

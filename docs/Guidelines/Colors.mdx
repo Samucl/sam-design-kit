@@ -3,27 +3,27 @@ title: Colors
 pagination_next: null
 pagination_prev: null
 ---
-import { ColorWrapper, ColorDiv, ColorCard } from "./Guidelines.styles"
-import { colors } from '../../src/themes/index' 
+import { ColorWrapper, ColorDiv, ColorCard } from "./utils/Guidelines.styles"
+import { themes } from '../../src/themes/index' 
 
 <h3>Primary</h3>
 
 <ColorWrapper>
-    <ColorCard label="Primary" color={colors.primary} />
-    <ColorCard label="Primary dark" color={colors.primaryDark} />
-    <ColorCard label="Primary light" color={colors.primaryLight} />
+    <ColorCard label="Primary" color={themes.colors.primary} />
+    <ColorCard label="Primary dark" color={themes.colors.primaryDark} />
+    <ColorCard label="Primary light" color={themes.colors.primaryLight} />
 </ColorWrapper>
 
 <h3>Secondary</h3>
 
 <ColorWrapper>
-    <ColorCard label="Secondary" color={colors.secondary} />
-    <ColorCard label="Secondary light" color={colors.secondaryLight} />
+    <ColorCard label="Secondary" color={themes.colors.secondary} />
+    <ColorCard label="Secondary light" color={themes.colors.secondaryLight} />
 </ColorWrapper>
 
 <h3>Highlight</h3>
 
 <ColorWrapper>
-    <ColorCard label="Highlight primary" color={colors.highlightPrimary} />
-    <ColorCard label="Highlight secondary" color={colors.highlightSecondary} />
+    <ColorCard label="Highlight primary" color={themes.colors.highlightPrimary} />
+    <ColorCard label="Highlight secondary" color={themes.colors.highlightSecondary} />
 </ColorWrapper>

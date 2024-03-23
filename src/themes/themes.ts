@@ -1,4 +1,5 @@
-const colors = {
+const themes = {
+  colors: {
     primaryDark: "#0A2A15",
     primary: "#2A8A53",
     primaryLight: "#EBF9F2",
@@ -6,6 +7,10 @@ const colors = {
     secondaryLight: "#F7ECE4",
     highlightPrimary: "#AAF2CA",
     highlightSecondary: "#FAD0A7",
-  };
+    white: "#FFFFFF",
+    black:"#000000"
+  },
+  radius: "12px"
+};
   
-  export default colors;
+export default themes;
