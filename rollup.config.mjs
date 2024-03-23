@@ -26,14 +26,14 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({ tsconfig: './tsconfig.json', sourceMap: false }),
       peerDepsExternal(),
       postcss({ extensions: ['.css']}),
       terser(),
     ],
   },
   {
-    input: 'dist/cjs/types/src/index.d.ts',
+    input: 'dist/esm/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [
       dts(),
