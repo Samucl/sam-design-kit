@@ -2,8 +2,6 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
-import url from '@rollup/plugin-url';
-import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
 import terser from '@rollup/plugin-terser'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
@@ -30,18 +28,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       peerDepsExternal(),
-      url({
-        include: ['**/*.woff', '**/*.woff2'],
-        limit: 0,
-        fileName: 'fonts/[name][extname]',
-        destDir: 'dist',
-      }),
-      copy({
-        targets: [
-          { src: 'src/fonts/*', dest: 'dist/fonts' }
-        ]
-      }),
-      postcss({ extensions: ['.css'], inject: true, extract: false }),
+      postcss({ extensions: ['.css']}),
       terser(),
     ],
   },
