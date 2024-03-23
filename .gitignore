@@ -9,6 +9,7 @@
 .cache-loader
 /.vscode
 /dist
+sam-design-kit*.tgz
 
 # Misc
 .DS_Store
