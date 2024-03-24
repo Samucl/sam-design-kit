@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
       defaultStyle: true,
     },
     'Components/Button',
+    'Components/Input',
   ],
 };
 

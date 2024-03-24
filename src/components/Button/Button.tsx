@@ -11,12 +11,17 @@ interface Props {
 const StyledButton = styled.button<{ $isDark?: boolean; }>`
   font-family: "Rethink Sans", sans-serif;
   font-weight: 600;
+  font-size: 1rem;
   padding: 12px;
   color: ${props => props.$isDark ? themes.colors.highlightPrimary : themes.colors.primaryLight};
   border: 2px solid ${themes.colors.highlightPrimary};
   background-color: ${props => props.$isDark ? themes.colors.primaryDark : themes.colors.primary};
   border-radius: ${themes.radius};
   cursor: pointer;
+
+  &:focus{
+    outline: 2px solid ${themes.colors.primary}
+  }
 `
 
 const Button: React.FC<Props> = ({ value, isDark=false }) => {
