@@ -7,14 +7,20 @@ interface Props {
     placeholder?: string;
     charLimit?: number;
     disabled?: boolean;
+    isDark?: boolean;
 }
 
-const InputWrapper = styled.div<{ $disabled?: boolean; }>`
+const InputWrapper = styled.div<{ $disabled: boolean; $isDark: boolean }>`
     position: relative;
     background-color: ${themes.colors.white};
     border-radius: ${themes.radius};
     padding: 12px;
     box-shadow: 0px 0px 28px -20px rgba(0,0,0,0.75);
+    
+    > input::placeholder{
+        color: ${themes.colors.primaryDark};
+        opacity: 0.8;
+    }
 
     &:focus-within {
         outline: 2px solid ${themes.colors.highlightPrimary};
@@ -28,7 +34,26 @@ const InputWrapper = styled.div<{ $disabled?: boolean; }>`
   
     ${({ $disabled }) => $disabled &&
     `
-        background-color: ${themes.colors.secondaryLight};
+      background-color: ${themes.colors.primaryLight};
+      > input::placeholder{
+        color: ${themes.colors.disabledPrimary};
+      }
+    `} 
+
+    ${({ $isDark }) => $isDark &&
+    `
+        background-color: ${themes.colors.primaryDark};
+        > input {
+          color: ${themes.colors.highlightPrimary};
+        }
+        > input::placeholder{
+          color: ${themes.colors.highlightPrimary};
+          opacity: 0.8;
+        }
+        label {
+          background-color: ${themes.colors.primaryDark};
+          color: ${themes.colors.highlightPrimary};
+        }
     `} 
 `
 
@@ -40,6 +65,7 @@ const StyledInput = styled.input`
   border: 0px;
   width: 100%;
   outline: 0;
+  color: ${themes.colors.primaryDark};
 
   &:focus::placeholder {
     color: transparent;
@@ -78,7 +104,7 @@ const AmountLabel = styled.label`
     padding: 0 4px;
 `
 
-const Input: React.FC<Props> = ({placeholder, charLimit, disabled}) => {
+const Input: React.FC<Props> = ({placeholder, charLimit, disabled, isDark}) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +112,7 @@ const Input: React.FC<Props> = ({placeholder, charLimit, disabled}) => {
   };
 
   return (
-    <InputWrapper $disabled={disabled}>
+    <InputWrapper $disabled={disabled} $isDark={isDark}>
         <PlaceholderLabel>{placeholder}</PlaceholderLabel>
         <StyledInput
           placeholder={placeholder}

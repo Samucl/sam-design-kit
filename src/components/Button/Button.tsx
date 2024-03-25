@@ -6,6 +6,7 @@ import '../../themes/fonts.css';
 interface Props {
   value: string;
   isDark?: boolean;
+  disabled?: boolean;
 }
 
 const StyledButton = styled.button<{ $isDark?: boolean; }>`
@@ -22,10 +23,16 @@ const StyledButton = styled.button<{ $isDark?: boolean; }>`
   &:focus{
     outline: 2px solid ${themes.colors.primary}
   }
+
+  &:disabled{
+    background-color: ${themes.colors.primaryLight};
+    color: ${themes.colors.disabledPrimary};
+    border: 0;
+  }
 `
 
-const Button: React.FC<Props> = ({ value, isDark=false }) => {
-  return <StyledButton $isDark={isDark}>{value}</StyledButton>;
+const Button: React.FC<Props> = ({ value, isDark=false, disabled }) => {
+  return <StyledButton $isDark={isDark} disabled={disabled}>{value}</StyledButton>;
 };
 
 export default Button;

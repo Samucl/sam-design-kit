@@ -7,6 +7,7 @@ const themes = {
     secondaryLight: "#F7ECE4",
     highlightPrimary: "#AAF2CA",
     highlightSecondary: "#FAD0A7",
+    disabledPrimary: "#99BFA9",
     white: "#FFFFFF",
     black:"#000000"
   },
