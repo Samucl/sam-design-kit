@@ -11,7 +11,6 @@ interface Props {
 const Box = styled.div<{ $isVisible?: boolean; }>`
   width: 100%;
   background-color: rgba(0, 0, 0, 0.05);
-  cursor: pointer;
   padding: 10px;
   border-radius: ${themes.radius};
   ${({ $isVisible }) => $isVisible && css`

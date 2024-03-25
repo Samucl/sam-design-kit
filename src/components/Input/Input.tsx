@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { themes } from '../../themes';
 import '../../themes/fonts.css';
 
 interface Props {
-    placeholder?: string
+    placeholder?: string;
+    charLimit?: number;
+    disabled?: boolean;
 }
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<{ $disabled?: boolean; }>`
     position: relative;
     background-color: ${themes.colors.white};
     border-radius: ${themes.radius};
@@ -17,13 +19,17 @@ const InputWrapper = styled.div`
     &:focus-within {
         outline: 2px solid ${themes.colors.highlightPrimary};
 
-        /* Make PlaceholderLabel visible when focused */
-        > label {
+        > label:first-child {
             opacity: 1;
             visibility: visible;
             top: -9px;
         }
     }
+  
+    ${({ $disabled }) => $disabled &&
+    `
+        background-color: ${themes.colors.secondaryLight};
+    `} 
 `
 
 const StyledInput = styled.input`
@@ -56,15 +62,40 @@ const PlaceholderLabel = styled.label`
     border-radius: 5px;
     opacity: 0;
     visibility: hidden;
-    // outline: 2px solid ${themes.colors.highlightPrimary};
     padding: 0 4px;
 `
 
-const Input: React.FC<Props> = ({placeholder}) => {
+const AmountLabel = styled.label`
+    position: absolute;
+    font-family: "Rethink Sans", sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    bottom: -9px;
+    right: 15px;
+    transition: opacity 0.2s, visibility 0.2s, top 0.2s;
+    background-color: ${themes.colors.white};
+    border-radius: 5px;
+    padding: 0 4px;
+`
+
+const Input: React.FC<Props> = ({placeholder, charLimit, disabled}) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value.slice(0, charLimit)); // Enforce charLimit
+  };
+
   return (
-    <InputWrapper>
+    <InputWrapper $disabled={disabled}>
         <PlaceholderLabel>{placeholder}</PlaceholderLabel>
-        <StyledInput placeholder={placeholder}/>
+        <StyledInput
+          placeholder={placeholder}
+          value={inputValue}
+          onChange={handleInputChange}
+          maxLength={charLimit}
+          disabled={disabled}
+        />
+        {charLimit && <AmountLabel>{`${inputValue.length}/${charLimit}`}</AmountLabel>}
     </InputWrapper>
     );
 };
