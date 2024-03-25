@@ -4,8 +4,8 @@ pagination_next: null
 pagination_prev: null
 ---
 
-
 import { Input } from '../../src/components/Input';
+import Codeblock from './utils/Codeblock'
 
 <hr/>
 
@@ -15,4 +15,6 @@ import { Input } from '../../src/components/Input';
 
 ## Default
 
-<Input placeholder="Default"/>
+<Codeblock codeString={`<Input placeholder="Default"/>`}>
+    <Input placeholder="Default"/>
+</Codeblock>
