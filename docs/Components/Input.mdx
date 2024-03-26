@@ -25,6 +25,12 @@ import Codeblock from './utils/Codeblock'
     <Input placeholder="Dark" isDark={true}/>
 </Codeblock>
 
+## Label
+
+<Codeblock codeString={`<Input placeholder="Bottom label" label="Bottom label"/>`}>
+    <Input placeholder="Bottom label" label="Bottom label"/>
+</Codeblock>
+
 ## Disabled
 
 <Codeblock codeString={`<Input placeholder="Disabled" disabled/>`}>
@@ -35,4 +41,16 @@ import Codeblock from './utils/Codeblock'
 
 <Codeblock codeString={`<Input placeholder="Default" charLimit={10}/>`}>
     <Input placeholder="Character limit of 10" charLimit={10}/>
+</Codeblock>
+
+## Error
+
+<Codeblock codeString={`<Input placeholder="Error" status="error" value="This is an error status"/>`}>
+    <Input placeholder="Error" status="error" value="This is an error status"/>
+</Codeblock>
+
+## Success
+
+<Codeblock codeString={`<Input placeholder="Success" status="success" value="This is a success status"/>`}>
+    <Input placeholder="Success" status="success" value="This is a success status"/>
 </Codeblock>

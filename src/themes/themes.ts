@@ -9,7 +9,9 @@ const themes = {
     highlightSecondary: "#FAD0A7",
     disabledPrimary: "#99BFA9",
     white: "#FFFFFF",
-    black:"#000000"
+    black:"#000000",
+    statusError:"#ff1f57",
+    statusSuccess:"#0acc41",
   },
   radius: "12px"
 };

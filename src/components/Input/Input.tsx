@@ -3,19 +3,25 @@ import styled from 'styled-components';
 import { themes } from '../../themes';
 import '../../themes/fonts.css';
 
+type Status = 'error' | 'success';
+
 interface Props {
     placeholder?: string;
     charLimit?: number;
     disabled?: boolean;
     isDark?: boolean;
+    label?: string;
+    status?: Status;
+    value?: string;
 }
 
-const InputWrapper = styled.div<{ $disabled: boolean; $isDark: boolean }>`
+const InputWrapper = styled.div<{ $disabled?: boolean; $isDark?: boolean; $isLimit?: boolean; $status?: Status;}>`
     position: relative;
+    display: flex;
     background-color: ${themes.colors.white};
     border-radius: ${themes.radius};
-    padding: 12px;
-    box-shadow: 0px 0px 28px -20px rgba(0,0,0,0.75);
+    //box-shadow: 0px 0px 28px -20px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.2);
     
     > input::placeholder{
         color: ${themes.colors.primaryDark};
@@ -40,6 +46,14 @@ const InputWrapper = styled.div<{ $disabled: boolean; $isDark: boolean }>`
       }
     `} 
 
+    // TODO: Change color red to theme color
+    ${({ $isLimit }) => $isLimit &&
+    `
+      label {
+          color: ${themes.colors.statusError};
+      }
+    `}
+
     ${({ $isDark }) => $isDark &&
     `
         background-color: ${themes.colors.primaryDark};
@@ -54,7 +68,34 @@ const InputWrapper = styled.div<{ $disabled: boolean; $isDark: boolean }>`
           background-color: ${themes.colors.primaryDark};
           color: ${themes.colors.highlightPrimary};
         }
+    `}
+
+  ${({ $status }) => $status === 'error' &&
+    `
+        > input {
+          color:  ${themes.colors.statusError};
+        }
+        &:focus-within {
+          outline: 2px solid ${themes.colors.statusError};
+        }
+        > label {
+          color: ${themes.colors.statusError};
+        }
     `} 
+
+  ${({ $status }) => $status === 'success' &&
+    `
+        > input {
+          color:  ${themes.colors.statusSuccess};
+        }
+        &:focus-within {
+          outline: 2px solid ${themes.colors.statusSuccess};
+        }
+        > label {
+          color: ${themes.colors.statusSuccess};
+        }
+    `} 
+    
 `
 
 const StyledInput = styled.input`
@@ -63,6 +104,7 @@ const StyledInput = styled.input`
   font-size: 1rem;
   background-color: transparent;
   border: 0px;
+  padding: 12px;
   width: 100%;
   outline: 0;
   color: ${themes.colors.primaryDark};
@@ -97,22 +139,42 @@ const AmountLabel = styled.label`
     font-weight: 400;
     font-size: 0.8rem;
     bottom: -9px;
-    right: 15px;
+    right: 0px;
     transition: opacity 0.2s, visibility 0.2s, top 0.2s;
     background-color: ${themes.colors.white};
     border-radius: 5px;
     padding: 0 4px;
 `
 
-const Input: React.FC<Props> = ({placeholder, charLimit, disabled, isDark}) => {
-  const [inputValue, setInputValue] = useState('');
+const StyledLabel = styled.label`
+  font-family: "Rethink Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  color: ${themes.colors.primaryDark};
+`
+
+const IconWrapper = styled.div<{$status?: Status;}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  padding: 10px;
+  padding-left: 0;
+  border-radius: 0 calc(${themes.radius} - 2px) calc(${themes.radius} - 2px) 0;
+`
+
+const Input: React.FC<Props> = ({placeholder, charLimit, disabled, isDark, label, status, value = ''}) => {
+  const [inputValue, setInputValue] = useState(value);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value.slice(0, charLimit)); // Enforce charLimit
+    setInputValue(event.target.value.slice(0, charLimit));
   };
 
   return (
-    <InputWrapper $disabled={disabled} $isDark={isDark}>
+    <>
+      <InputWrapper $disabled={disabled} $isDark={isDark} $isLimit={inputValue.length === charLimit} $status={status}>
         <PlaceholderLabel>{placeholder}</PlaceholderLabel>
         <StyledInput
           placeholder={placeholder}
@@ -122,7 +184,10 @@ const Input: React.FC<Props> = ({placeholder, charLimit, disabled, isDark}) => {
           disabled={disabled}
         />
         {charLimit && <AmountLabel>{`${inputValue.length}/${charLimit}`}</AmountLabel>}
+        {/*<IconWrapper></IconWrapper>*/}
     </InputWrapper>
+    {label && <StyledLabel>{label}</StyledLabel>}
+    </>
     );
 };
 
