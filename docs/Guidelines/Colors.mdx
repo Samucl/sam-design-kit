@@ -3,7 +3,7 @@ title: Colors
 pagination_next: null
 pagination_prev: null
 ---
-import { ColorWrapper, ColorDiv, ColorCard } from "./utils/Guidelines.styles"
+import { ColorWrapper, ColorCard } from "./utils/Guidelines.styles"
 import { themes } from '../../src/themes/index' 
 
 <h3>Primary</h3>
@@ -32,6 +32,13 @@ import { themes } from '../../src/themes/index'
 
 <ColorWrapper>
     <ColorCard label="Disabled primary" color={themes.colors.disabledPrimary} />
+</ColorWrapper>
+
+<h3>Status</h3>
+
+<ColorWrapper>
+    <ColorCard label="Error" color={themes.colors.statusError} />
+    <ColorCard label="Success" color={themes.colors.statusSuccess} />
 </ColorWrapper>
 
 <h3>Base</h3>

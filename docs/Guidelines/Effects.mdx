@@ -4,4 +4,15 @@ pagination_next: null
 pagination_prev: null
 ---
 
-<span>Coming soon..</span>
+import { themes } from '../../src/themes/index' ;
+import { BorderRadiusExample, BoxShadowExample, StyledLabel, ColumnDiv } from './utils/Guidelines.styles';
+
+<h3>Border radius</h3>
+
+<StyledLabel>For rounded corners the <label style={{color: themes.colors.secondary}}>radius</label> value should be used</StyledLabel>
+<BorderRadiusExample/>
+
+<h3>Box shadow</h3>
+
+<StyledLabel>For shadow effect the <label style={{color: themes.colors.secondary}}>boxShadow</label> value should be used</StyledLabel>
+<BoxShadowExample/>

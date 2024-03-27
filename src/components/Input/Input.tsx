@@ -20,8 +20,7 @@ const InputWrapper = styled.div<{ $disabled?: boolean; $isDark?: boolean; $isLim
     display: flex;
     background-color: ${themes.colors.white};
     border-radius: ${themes.radius};
-    //box-shadow: 0px 0px 28px -20px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.2);
+    box-shadow: ${themes.boxShadow};
     
     > input::placeholder{
         color: ${themes.colors.primaryDark};

@@ -4,7 +4,7 @@ import { themes } from '../../../src/themes';
 import CodeBlock from '@theme/CodeBlock';
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   codeString?: string;
 }
 
@@ -52,9 +52,11 @@ const Codeblock: React.FC<Props> = ({ children, codeString }) => {
 
   return (
     <>
+    {children &&
       <Box $isVisible={isVisible}>
         {children}
       </Box>
+    }
       <StyledCodeBlock language="jsx" $isVisible={isVisible}>
         {codeString}
       </StyledCodeBlock>

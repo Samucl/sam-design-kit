@@ -13,7 +13,8 @@ const themes = {
     statusError:"#ff1f57",
     statusSuccess:"#0acc41",
   },
-  radius: "12px"
+  radius: "12px",
+  boxShadow: "0px 2px 10px 1px rgba(0,0,0,0.2)"
 };
   
 export default themes;
