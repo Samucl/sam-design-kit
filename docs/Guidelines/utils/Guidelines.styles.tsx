@@ -69,6 +69,23 @@ const ColorDiv = styled.div<{ $color: string }>`
     border-radius: ${themes.radius} ${themes.radius} 0 0;
 `;
 
+const ColorCombinationForeground = styled.div<{ $primary: string }>`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: ${props => props.$primary};
+    border-radius: ${themes.radius};
+`;
+
+const ColorCombinationLabel = styled.label<{ $secondary: string }>`
+    color: ${props => props.$secondary};
+    font-size: 1.6rem;
+    font-weight: 700;
+    white-space: pre-wrap;
+    margin-left: 10px;
+`
+
 const ColorLabel = styled.label`
     width: 100%;
     height: 100%;
@@ -78,6 +95,18 @@ const ColorLabel = styled.label`
     white-space: pre-wrap;
     border-radius: 0 0 ${themes.radius} ${themes.radius};
 `;
+
+export const ColorCombintation = ({primary, secondary, primaryLabel, secondaryLabel} : {primary: string, secondary: string, primaryLabel: string, secondaryLabel: string}) => {
+    return (
+        <ColorCardWrapper>
+            <ColorCombinationForeground $primary={primary}>
+                <ColorCombinationLabel $secondary={secondary}>
+                    {`${primaryLabel}\n${secondaryLabel}`}
+                </ColorCombinationLabel>
+            </ColorCombinationForeground>
+        </ColorCardWrapper>
+    );
+}
 
 export const ColorCard = ({label, color} : {label: string, color: string}) => {
 

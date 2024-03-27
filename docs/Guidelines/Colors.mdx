@@ -3,7 +3,7 @@ title: Colors
 pagination_next: null
 pagination_prev: null
 ---
-import { ColorWrapper, ColorCard } from "./utils/Guidelines.styles"
+import { ColorWrapper, ColorCard, ColorCombintation } from "./utils/Guidelines.styles"
 import { themes } from '../../src/themes/index' 
 
 <h3>Primary</h3>
@@ -46,4 +46,78 @@ import { themes } from '../../src/themes/index'
 <ColorWrapper>
     <ColorCard label="Black" color={themes.colors.black} />
     <ColorCard label="White" color={themes.colors.white} />
+</ColorWrapper>
+
+<h3>WCAG Accepted color combinations</h3>
+
+<ColorWrapper>
+    <ColorCombintation 
+primary={themes.colors.primaryLight} 
+secondary={themes.colors.primary}
+primaryLabel="Primary light"
+secondaryLabel="Primary"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primaryDark} 
+secondary={themes.colors.primaryLight}
+primaryLabel="Primary dark"
+secondaryLabel="Primary light"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primary} 
+secondary={themes.colors.secondaryLight}
+primaryLabel="Primary"
+secondaryLabel="Secondary light"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primaryDark} 
+secondary={themes.colors.secondaryLight}
+primaryLabel="Primary dark"
+secondaryLabel="Secondary light"
+/>
+
+<ColorCombintation 
+primary={themes.colors.highlightPrimary} 
+secondary={themes.colors.primaryDark}
+primaryLabel="Highlight primary"
+secondaryLabel="Primary dark"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primaryDark} 
+secondary={themes.colors.highlightSecondary}
+primaryLabel="Primary dark"
+secondaryLabel="Highlight secondary"
+/>
+
+<ColorCombintation 
+primary={themes.colors.disabledPrimary} 
+secondary={themes.colors.primaryDark}
+primaryLabel="Disabled primary"
+secondaryLabel="Primary dark"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primaryDark} 
+secondary={themes.colors.statusError}
+primaryLabel="Primary dark"
+secondaryLabel="Status error"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primaryLight} 
+secondary={themes.colors.statusError}
+primaryLabel="Primary light"
+secondaryLabel="Status error"
+/>
+
+<ColorCombintation 
+primary={themes.colors.primaryDark} 
+secondary={themes.colors.statusSuccess}
+primaryLabel="Primary dark"
+secondaryLabel="Status success"
+/>
 </ColorWrapper>
