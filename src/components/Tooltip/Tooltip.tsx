@@ -54,6 +54,10 @@ const TooltipText = styled.div<{
         visibility 0s,
         opacity 0.5s linear;
 
+    @media (max-width: 768px) {
+        font-size: 0.7rem;
+    }
+
     ${(props) =>
         props.$setOpen &&
         css`
