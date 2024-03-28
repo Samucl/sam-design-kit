@@ -9,6 +9,7 @@ interface Props {
     position?: 'top' | 'right' | 'bottom' | 'left'
     isDark?: boolean
     setOpen?: boolean
+    hidePointer?: boolean;
 }
 
 const TooltipContainer = styled.div`
@@ -30,6 +31,7 @@ const TooltipText = styled.div<{
     position: Props['position']
     $isDark: Props['isDark']
     $setOpen: Props['setOpen']
+    $hidePointer: Props['hidePointer']
 }>`
     font-family: 'Rethink Sans', sans-serif;
     font-weight: 600;
@@ -77,6 +79,14 @@ const TooltipText = styled.div<{
         display: block;
         z-index: 1;
     }
+
+    ${(props) =>
+        props.$hidePointer &&
+        css`
+            &::after {
+                border: 0;
+            }
+        `}
 
     ${(props) => {
         switch (props.position) {
@@ -146,6 +156,7 @@ const Tooltip: React.FC<Props> = ({
     position = 'top',
     isDark = false,
     setOpen = false,
+    hidePointer = false,
 }) => {
     return (
         <TooltipContainer>
@@ -154,6 +165,7 @@ const Tooltip: React.FC<Props> = ({
                 position={position}
                 $isDark={isDark}
                 $setOpen={setOpen}
+                $hidePointer={hidePointer}
             >
                 {text}
             </TooltipText>
