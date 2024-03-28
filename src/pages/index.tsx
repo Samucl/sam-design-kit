@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function Home(): JSX.Element {
-  const history = useHistory();
+    const history = useHistory()
 
-  useEffect(() => {
-    history.push('/docs/GettingStarted');
-  }, [history]);
+    useEffect(() => {
+        history.push('/docs/GettingStarted')
+    }, [history])
 
-  return (<></>);
+    return <></>
 }

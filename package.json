@@ -19,7 +19,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "clean": "powershell Remove-Item ./dist -Recurse -Force; Remove-Item ./sam-design-kit2*.tgz -Force"
+    "clean": "powershell Remove-Item ./dist -Recurse -Force; Remove-Item ./sam-design-kit2*.tgz -Force",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
     "react": "^18.x",
@@ -44,6 +45,7 @@
     "clsx": "^2.0.0",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
+    "prettier": "3.2.5",
     "prism-react-renderer": "^2.3.0",
     "rollup": "^4.13.0",
     "rollup-plugin-delete": "^2.0.0",
