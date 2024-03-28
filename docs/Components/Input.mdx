@@ -6,12 +6,58 @@ pagination_prev: null
 
 import { Input } from '../../src/components/Input';
 import Codeblock from './utils/Codeblock'
+import PropsDropdown from './utils/PropsDropdown'
 
 <hr/>
 
 <p>Input fields allow users to enter and edit text, providing a straightforward way for them to input data, respond to prompts, and express preferences.</p>
 
 <hr/>
+
+<PropsDropdown>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Placeholder text for input field</td>
+  </tr>
+  <tr>
+    <td>charLimit</td>
+    <td>number</td>
+    <td>N/A</td>
+    <td>Sets the maximum character limit for input</td>
+  </tr>
+   <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the input into a disabled state</td>
+  </tr>
+  <tr>
+    <td>isDark</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>The option for dark mode</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Sets a label to bottom of input</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Set a default value for input</td>
+  </tr>
+</PropsDropdown>
 
 ## Default
 

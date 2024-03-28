@@ -6,6 +6,7 @@ pagination_prev: null
 
 import { Tooltip } from '../../src/components/Tooltip'
 import Codeblock from './utils/Codeblock'
+import PropsDropdown from './utils/PropsDropdown'
 import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 
 <hr/>
@@ -14,11 +15,50 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 
 <hr/>
 
+<PropsDropdown>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td>string</td>
+    <td><strong>required</strong></td>
+    <td>Sets text for the Tooltip</td>
+  </tr>
+  <tr>
+    <td>children</td>
+    <td>React.ReactNode</td>
+    <td><strong>required</strong></td>
+    <td>Element which tooltip will appear from</td>
+  </tr>
+   <tr>
+    <td>position</td>
+    <td>top | right | bottom | left</td>
+    <td>top</td>
+    <td>Sets the position for Tooltip</td>
+  </tr>
+  <tr>
+    <td>isDark</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>The option for dark mode</td>
+  </tr>
+  <tr>
+    <td>hidePointer</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Hides the Tooltip pointer</td>
+  </tr>
+</PropsDropdown>
+
 ## Top
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="top">
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" position="top">
+  <Tooltip value="This is the tooltip content!" position="top">
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>
@@ -30,7 +70,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="bottom">
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" position="bottom">
+  <Tooltip value="This is the tooltip content!" position="bottom">
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>
@@ -41,7 +81,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="left">
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" position="left">
+  <Tooltip value="This is the tooltip content!" position="left">
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>
@@ -52,7 +92,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="right">
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" position="right">
+  <Tooltip value="This is the tooltip content!" position="right">
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>
@@ -61,7 +101,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" setOpen={true}>
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" setOpen={true}>
+  <Tooltip value="This is the tooltip content!" setOpen={true}>
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>
@@ -70,7 +110,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" isDark={true}>
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" isDark={true}>
+  <Tooltip value="This is the tooltip content!" isDark={true}>
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>
@@ -79,7 +119,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" hidePointer={true}>
     <label>Hover Me</label>
 </Tooltip>`}>
-  <Tooltip text="This is the tooltip content!" hidePointer={true}>
+  <Tooltip value="This is the tooltip content!" hidePointer={true}>
     <StyledLabel>Hover Me</StyledLabel>
   </Tooltip>
 </Codeblock>

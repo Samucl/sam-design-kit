@@ -51,7 +51,6 @@ const InputWrapper = styled.div<{
       }
     `}
 
-    // TODO: Change color red to theme color
     ${({ $isLimit }) =>
         $isLimit &&
         `
@@ -138,7 +137,7 @@ const PlaceholderLabel = styled.label`
         visibility 0.2s,
         top 0.2s;
     background-color: ${themes.colors.white};
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     opacity: 0;
     visibility: hidden;
     padding: 0 4px;
@@ -151,10 +150,6 @@ const AmountLabel = styled.label`
     font-size: 0.8rem;
     bottom: -9px;
     right: 0px;
-    transition:
-        opacity 0.2s,
-        visibility 0.2s,
-        top 0.2s;
     background-color: ${themes.colors.white};
     border-radius: 5px;
     padding: 0 4px;
@@ -213,7 +208,8 @@ const Input: React.FC<Props> = ({
                 {charLimit && (
                     <AmountLabel>{`${inputValue.length}/${charLimit}`}</AmountLabel>
                 )}
-                {/*<IconWrapper></IconWrapper>*/}
+                
+                {/* TODO: When icons done <IconWrapper></IconWrapper>*/}
             </InputWrapper>
             {label && <StyledLabel>{label}</StyledLabel>}
         </>

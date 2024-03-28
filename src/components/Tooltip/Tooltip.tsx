@@ -5,14 +5,14 @@ import '../../themes/fonts.css'
 
 interface Props {
     children: React.ReactNode
-    text: string
+    value: string
     position?: 'top' | 'right' | 'bottom' | 'left'
     isDark?: boolean
     setOpen?: boolean
     hidePointer?: boolean;
 }
 
-const TooltipContainer = styled.div`
+const TooltipWrapper = styled.div`
     position: relative;
     display: inline-block;
 `
@@ -27,7 +27,7 @@ const fadeIn = keyframes`
   }
 `
 
-const TooltipText = styled.div<{
+const TooltipContent = styled.div<{
     position: Props['position']
     $isDark: Props['isDark']
     $setOpen: Props['setOpen']
@@ -143,7 +143,7 @@ const TooltipText = styled.div<{
         }
     }}
 
-    ${TooltipContainer}:hover & {
+    ${TooltipWrapper}:hover & {
         visibility: visible;
         opacity: 1;
         animation: ${fadeIn} 0.2s linear forwards;
@@ -152,24 +152,24 @@ const TooltipText = styled.div<{
 
 const Tooltip: React.FC<Props> = ({
     children,
-    text,
+    value: text,
     position = 'top',
     isDark = false,
     setOpen = false,
     hidePointer = false,
 }) => {
     return (
-        <TooltipContainer>
+        <TooltipWrapper>
             {children}
-            <TooltipText
+            <TooltipContent
                 position={position}
                 $isDark={isDark}
                 $setOpen={setOpen}
                 $hidePointer={hidePointer}
             >
                 {text}
-            </TooltipText>
-        </TooltipContainer>
+            </TooltipContent>
+        </TooltipWrapper>
     )
 }
 
