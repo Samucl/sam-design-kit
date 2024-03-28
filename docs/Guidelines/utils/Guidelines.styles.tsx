@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import { themes } from '../../../src/themes/index' 
 import Codeblock  from '../../Components/utils/Codeblock';
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
     height: 100px; 
     background: linear-gradient(180deg, ${themes.colors.secondary} 0%,
-        ${themes.colors.primaryLight} 90%,
-        ${themes.colors.primaryLight} 100%);
-    border-radius: ${themes.radius};
+        ${themes.colors.highlightSecondary} 100%);
     margin-bottom: 10px;
 `
+
 const ExampleWrapper = styled.div`
     margin-top: 10px;
     width: 30vw;
@@ -17,13 +16,6 @@ const ExampleWrapper = styled.div`
     @media (max-width: 768px) {
         width: 100%;
     }
-`
-
-export const ColumnDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: flex-start;
 `
 
 export const StyledLabel = styled.label`
@@ -121,7 +113,7 @@ export const ColorCard = ({label, color} : {label: string, color: string}) => {
 export const BorderRadiusExample = () => {
     return (
         <ExampleWrapper>
-            <StyledDiv></StyledDiv>
+            <StyledDiv style={{borderRadius: themes.radius}}/>
             <Codeblock codeString={'border-radius: ${themes.radius};'}>
             </Codeblock>
         </ExampleWrapper>
@@ -131,7 +123,7 @@ export const BorderRadiusExample = () => {
 export const BoxShadowExample = () => {
     return (
         <ExampleWrapper>
-            <StyledDiv style={{background: "white", boxShadow: themes.boxShadow}}></StyledDiv>
+            <StyledDiv style={{boxShadow: themes.boxShadow}}/>
             <Codeblock codeString={'box-shadow: ${themes.boxShadow};'}>
             </Codeblock>
         </ExampleWrapper>

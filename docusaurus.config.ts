@@ -52,10 +52,10 @@ const config: Config = {
       },
     },
     breadcrumbs: {
-      enabled: false, // Remove breadcrumbs
+      enabled: false,
     },
     nextPrevLinks: {
-      enabled: false, // Remove next/previous links
+      enabled: false,
     },
     colorMode: {
       defaultMode: 'light',

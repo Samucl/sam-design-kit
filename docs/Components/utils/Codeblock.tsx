@@ -6,9 +6,15 @@ import CodeBlock from '@theme/CodeBlock';
 interface Props {
   children?: React.ReactNode;
   codeString?: string;
+  isCenter?: boolean;
 }
 
-const Box = styled.div<{ $isVisible?: boolean; }>`
+const Box = styled.div<{ $isVisible?: boolean; $isCenter: boolean; }>`
+  ${({ $isCenter }) => $isCenter && css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `}
   width: 100%;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 10px;
@@ -43,7 +49,7 @@ const StyledCodeBlock = styled(CodeBlock)<{ $isVisible?: boolean; }>`
   `}
 `
 
-const Codeblock: React.FC<Props> = ({ children, codeString }) => {
+const Codeblock: React.FC<Props> = ({ children, codeString, isCenter=false }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -53,7 +59,7 @@ const Codeblock: React.FC<Props> = ({ children, codeString }) => {
   return (
     <>
     {children &&
-      <Box $isVisible={isVisible}>
+      <Box $isVisible={isVisible} $isCenter={isCenter}>
         {children}
       </Box>
     }
