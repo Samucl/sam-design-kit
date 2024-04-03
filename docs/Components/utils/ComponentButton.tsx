@@ -4,6 +4,8 @@ import { themes } from '../../../src/themes';
 
 interface Props {
   children: React.ReactElement
+  value?: string
+  link?: string
 }
 
 const StyledButton = styled.button`
@@ -15,13 +17,20 @@ const StyledButton = styled.button`
   background-color: rgba(0, 0, 0, 0.05);
   color: ${themes.colors.primaryDark};
   border-radius: ${themes.radius};
+  cursor: pointer;
+`
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 `
 
 const StyledTable = styled.table`
   margin-top: 40px;
 `
 
-const PropsDropdown: React.FC<Props> = ({ children }) => {
+export const PropsDropdown: React.FC<Props> = ({ children, value, link }) => {
 
   const [showProps, setShowProps] = useState(false)
 
@@ -31,7 +40,12 @@ const PropsDropdown: React.FC<Props> = ({ children }) => {
 
     return (
       <>
+      <ButtonWrapper>
         <StyledButton onClick={handleShowProps}>Show props</StyledButton>
+        <a href={link}>
+          <StyledButton>{ value }</StyledButton>
+        </a> 
+      </ButtonWrapper>
       {showProps &&
         <StyledTable>
         { children }
@@ -40,5 +54,3 @@ const PropsDropdown: React.FC<Props> = ({ children }) => {
       </>
     );
   };
-  
-  export default PropsDropdown;
