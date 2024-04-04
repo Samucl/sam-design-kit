@@ -120,7 +120,7 @@ const TooltipContent = styled.div<{
                     top: 50%;
                     transform: translateY(-50%);
                     &::after {
-                        right: -5px;
+                        right: -4px;
                         top: 50%;
                         transform: translateY(-50%) rotate(45deg);
                         border-width: 5px;
@@ -132,7 +132,7 @@ const TooltipContent = styled.div<{
                     top: 50%;
                     transform: translateY(-50%);
                     &::after {
-                        left: -5px;
+                        left: -4px;
                         top: 50%;
                         transform: translateY(-50%) rotate(45deg);
                         border-width: 5px;
