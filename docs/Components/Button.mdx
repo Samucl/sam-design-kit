@@ -22,10 +22,22 @@ import { PropsDropdown } from './utils/ComponentButton'
     <th>Description</th>
   </tr>
   <tr>
-    <td>value</td>
-    <td>string</td>
-    <td><strong>required</strong></td>
+    <td>children</td>
+    <td>ReactNode</td>
+    <td>N/A</td>
     <td>The content displayed in the Button</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Unique indentifier for Button</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Name of Button</td>
   </tr>
   <tr>
     <td>isDark</td>
@@ -39,22 +51,28 @@ import { PropsDropdown } from './utils/ComponentButton'
     <td>false</td>
     <td>Sets the Button into a disabled state</td>
   </tr>
+  <tr>
+    <td>onClick</td>
+    <td>(e: MouseEvent&lt;HTMLElement&gt;) => void</td>
+    <td>N/A</td>
+    <td>Button mouse click callback</td>
+  </tr>
 </PropsDropdown>
 
 ## Default
 
-<Codeblock codeString={`<Button value="Default Button" />`}>
-    <Button value="Default Button" />
+<Codeblock codeString={`<Button>Default Button</Button>`}>
+    <Button>Default Button</Button>
 </Codeblock>
 
 ## Dark
 
-<Codeblock codeString={`<Button value="Dark Button" isDark={true}/>`}>
-    <Button value="Dark Button" isDark={true}/>
+<Codeblock codeString={`<Button isDark={true}>Dark Button</Button>`}>
+    <Button isDark={true}>Dark Button</Button>
 </Codeblock>
 
 ## Disabled
 
-<Codeblock codeString={`<Button value="Disabled Button" disabled/>`}>
-    <Button value="Disabled Button" disabled/>
+<Codeblock codeString={`Button disabled>Disabled Button</Button>`}>
+    <Button disabled>Disabled Button</Button>
 </Codeblock>

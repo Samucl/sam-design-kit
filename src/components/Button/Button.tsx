@@ -1,12 +1,15 @@
-import React from 'react'
+import { FC, ReactNode, MouseEvent } from 'react'
 import styled from 'styled-components'
 import { themes } from '../../themes'
 import '../../themes/fonts.css'
 
 interface Props {
-    value: string
+    children?: ReactNode
     isDark?: boolean
     disabled?: boolean
+    id?: string
+    name?: string
+    onClick: (e: MouseEvent<HTMLElement>) => void
 }
 
 const StyledButton = styled.button<{ $isDark?: boolean }>`
@@ -35,10 +38,10 @@ const StyledButton = styled.button<{ $isDark?: boolean }>`
     }
 `
 
-const Button: React.FC<Props> = ({ value, isDark = false, disabled }) => {
+const Button: FC<Props> = ({ isDark = false, disabled, children, onClick, id, name }) => {
     return (
-        <StyledButton $isDark={isDark} disabled={disabled}>
-            {value}
+        <StyledButton $isDark={isDark} disabled={disabled} onClick={onClick} id={id} name={name}>
+            { children }
         </StyledButton>
     )
 }

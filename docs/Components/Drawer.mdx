@@ -1,0 +1,38 @@
+---
+title: Drawer
+pagination_next: null
+pagination_prev: null
+---
+
+import { Drawer, Button } from '../../src/components';
+import Codeblock from './utils/Codeblock'
+import { PropsDropdown } from './utils/ComponentButton'
+import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
+import { useState } from 'react';
+
+<hr/>
+
+<p>Button enables users to execute actions and make decisions with a simple click.</p>
+
+<hr/>
+
+<PropsDropdown value="Figma file" link="">
+</PropsDropdown>
+
+## Default
+
+export const DrawerExample = () => {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  return (
+    <>
+      <div style={{display: "flex", justifyContent: "center"}}><StyledLabel onClick={() => setDrawerOpen(true)}>Click to open Drawer</StyledLabel></div>
+      <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+        <p>This is the drawer content!</p>
+      </Drawer>
+    </>
+  );
+};
+
+<Codeblock codeString={`<Button value="Default Button" />`}>
+    <DrawerExample/>
+</Codeblock>

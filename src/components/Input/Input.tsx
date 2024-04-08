@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { themes } from '../../themes'
 import '../../themes/fonts.css'
@@ -174,7 +174,7 @@ const IconWrapper = styled.div<{ $status?: Status }>`
     border-radius: 0 calc(${themes.radius} - 2px) calc(${themes.radius} - 2px) 0;
 `
 
-const Input: React.FC<Props> = ({
+const Input: FC<Props> = ({
     placeholder,
     charLimit,
     disabled,

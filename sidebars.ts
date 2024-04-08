@@ -23,6 +23,7 @@ const sidebars: SidebarsConfig = {
     'Components/Button',
     'Components/Input',
     'Components/Tooltip',
+    'Components/Drawer',
   ],
 };
 

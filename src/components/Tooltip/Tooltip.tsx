@@ -1,10 +1,10 @@
-import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { themes } from '../../themes'
 import '../../themes/fonts.css'
+import { FC, ReactNode } from 'react'
 
 interface Props {
-    children: React.ReactNode
+    children: ReactNode
     value: string
     position?: 'top' | 'right' | 'bottom' | 'left'
     isDark?: boolean
@@ -150,7 +150,7 @@ const TooltipContent = styled.div<{
     }
 `
 
-const Tooltip: React.FC<Props> = ({
+const Tooltip: FC<Props> = ({
     children,
     value: text,
     position = 'top',
