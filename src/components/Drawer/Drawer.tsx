@@ -1,27 +1,66 @@
-import { FC, ReactNode } from 'react';
-import styled from 'styled-components';
+import { FC, ReactNode, useRef, useEffect } from 'react';
+import styled, { css } from 'styled-components';
 import { themes } from '../../themes';
 import '../../themes/fonts.css';
 
 interface Props {
-    children?: ReactNode;
-    isOpen: boolean;
-    onClose: () => void;
+  children?: ReactNode;
+  isOpen: boolean;
+  onClose: () => void;
+  position?: 'left' | 'right' | 'top' | 'bottom';
 }
 
-const DrawerWrapper = styled.div<{ isOpen: boolean }>`
+const DrawerWrapper = styled.div<{ isOpen: boolean; $position: Props['position'] }>`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100%;
   background-color: ${themes.colors.primary};
-  transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  ${(props) => {
+    switch (props.$position) {
+      case 'left':
+        return css`
+          top: 0;
+          left: 0;
+          width: 300px;
+          height: 100%;
+          transform: ${props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
+        `;
+      case 'right':
+        return css`
+          top: 0;
+          right: 0;
+          width: 300px;
+          height: 100%;
+          transform: ${props.isOpen ? 'translateX(0)' : 'translateX(100%)'};
+        `;
+      case 'top':
+        return css`
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 300px;
+          transform: ${props.isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+        `;
+      case 'bottom':
+        return css`
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 300px;
+          transform: ${props.isOpen ? 'translateY(0)' : 'translateY(100%)'};
+        `;
+      default:
+        return css``;
+    }
+  }}
 
   @media (max-width: 768px) {
     width: 100%;
+    ${(props) =>
+      (props.$position === 'top' || props.$position === 'bottom') &&
+      css`
+        height: 100vh;
+      `}
   }
 `;
 
@@ -48,9 +87,24 @@ const DrawerContent = styled.div`
   color: ${themes.colors.primaryLight};
 `;
 
-const Drawer: FC<Props> = ({ children, isOpen, onClose }) => {
+const Drawer: FC<Props> = ({ children, isOpen, onClose, position = 'right' }) => {
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
+
   return (
-    <DrawerWrapper isOpen={isOpen}>
+    <DrawerWrapper isOpen={isOpen} $position={position} ref={drawerRef}>
       <CloseButton onClick={onClose}>Close</CloseButton>
       <DrawerContent>
         {children}

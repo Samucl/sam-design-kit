@@ -12,27 +12,100 @@ import { useState } from 'react';
 
 <hr/>
 
-<p>Button enables users to execute actions and make decisions with a simple click.</p>
+<p>The Drawer component is a sliding panel that seamlessly integrates additional content or controls into the user experience, accessible with a simple gesture and easily dismissible to maintain focus on the main content.</p>
 
 <hr/>
 
 <PropsDropdown value="Figma file" link="">
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>children</td>
+    <td>ReactNode</td>
+    <td>N/A</td>
+    <td>The content displayed in the Drawer</td>
+  </tr>
+  <tr>
+    <td>isOpen</td>
+    <td>boolean</td>
+    <td>N/A</td>
+    <td>Opens or closes the Drawer</td>
+  </tr>
+  <tr>
+    <td>onClose</td>
+    <td>() => void</td>
+    <td>N/A</td>
+    <td>Drawer on close callback</td>
+  </tr>
+  <tr>
+    <td>position</td>
+    <td>left | right | top | bottom</td>
+    <td>right</td>
+    <td>Position of the Drawer</td>
+  </tr>
 </PropsDropdown>
 
-## Default
+## Default (Right)
 
-export const DrawerExample = () => {
+export const DrawerExample = (props) => {
+  const { position } = props;
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   return (
     <>
       <div style={{display: "flex", justifyContent: "center"}}><StyledLabel onClick={() => setDrawerOpen(true)}>Click to open Drawer</StyledLabel></div>
-      <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
-        <p>This is the drawer content!</p>
+      <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={position}>
+        <p>This is the Drawer content!</p>
       </Drawer>
     </>
   );
 };
 
-<Codeblock codeString={`<Button value="Default Button" />`}>
-    <DrawerExample/>
+<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+return (
+  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+    <p>This is the Drawer content!</p>
+  </Drawer>
+);`}>
+    <DrawerExample position={"right"}/>
+</Codeblock>
+
+## Left
+
+<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+return (
+  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={"left"}>
+    <p>This is the Drawer content!</p>
+  </Drawer>
+);`}>
+    <DrawerExample position={"left"}/>
+</Codeblock>
+
+## Top
+
+<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+return (
+  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={"top"}>
+    <p>This is the Drawer content!</p>
+  </Drawer>
+);`}>
+    <DrawerExample position={"top"}/>
+</Codeblock>
+
+## Bottom
+
+<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+return (
+  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={"bottom"}>
+    <p>This is the Drawer content!</p>
+  </Drawer>
+);`}>
+    <DrawerExample position={"bottom"}/>
 </Codeblock>
