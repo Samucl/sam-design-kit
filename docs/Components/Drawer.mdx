@@ -52,13 +52,13 @@ export const DrawerExample = (props) => {
   <tr>
     <td>isOpen</td>
     <td>boolean</td>
-    <td>N/A</td>
+    <td><strong>required</strong></td>
     <td>Opens or closes the Drawer</td>
   </tr>
   <tr>
     <td>onClose</td>
     <td>() => void</td>
-    <td>N/A</td>
+    <td><strong>required</strong></td>
     <td>Drawer on close callback</td>
   </tr>
   <tr>
@@ -71,10 +71,13 @@ export const DrawerExample = (props) => {
 
 ## Default (Right)
 
-<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+<Codeblock codeString={`const [isOpen, setIsOpen] = useState(false);
+const handleOpen = useCallback(() => setIsOpen(true), []);
+const handleClose = useCallback(() => setIsOpen(false), []);
 
 return (
-  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+  <button onClick={handleOpen}/> // Toggle
+  <Drawer isOpen={isOpen} onClose={handleClose}>
     <p>This is the Drawer content!</p>
   </Drawer>
 );`}>
@@ -83,10 +86,13 @@ return (
 
 ## Left
 
-<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+<Codeblock codeString={`const [isOpen, setIsOpen] = useState(false);
+const handleOpen = useCallback(() => setIsOpen(true), []);
+const handleClose = useCallback(() => setIsOpen(false), []);
 
 return (
-  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={"left"}>
+  <button onClick={handleOpen}/> // Toggle
+  <Drawer isOpen={isOpen} onClose={handleClose} position={"left"}>
     <p>This is the Drawer content!</p>
   </Drawer>
 );`}>
@@ -95,10 +101,13 @@ return (
 
 ## Top
 
-<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+<Codeblock codeString={`const [isOpen, setIsOpen] = useState(false);
+const handleOpen = useCallback(() => setIsOpen(true), []);
+const handleClose = useCallback(() => setIsOpen(false), []);
 
 return (
-  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={"top"}>
+  <button onClick={handleOpen}/> // Toggle
+  <Drawer isOpen={isOpen} onClose={handleClose} position={"top"}>
     <p>This is the Drawer content!</p>
   </Drawer>
 );`}>
@@ -107,10 +116,13 @@ return (
 
 ## Bottom
 
-<Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
+<Codeblock codeString={`const [isOpen, setIsOpen] = useState(false);
+const handleOpen = useCallback(() => setIsOpen(true), []);
+const handleClose = useCallback(() => setIsOpen(false), []);
 
 return (
-  <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={"bottom"}>
+  <button onClick={handleOpen}/> // Toggle
+  <Drawer isOpen={isOpen} onClose={handleClose} position={"bottom"}>
     <p>This is the Drawer content!</p>
   </Drawer>
 );`}>
