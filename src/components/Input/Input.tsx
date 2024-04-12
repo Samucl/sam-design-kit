@@ -208,7 +208,7 @@ const Input: FC<Props> = ({
                 {charLimit && (
                     <AmountLabel>{`${inputValue.length}/${charLimit}`}</AmountLabel>
                 )}
-                
+
                 {/* TODO: When icons done <IconWrapper></IconWrapper>*/}
             </InputWrapper>
             {label && <StyledLabel>{label}</StyledLabel>}

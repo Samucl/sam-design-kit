@@ -18,11 +18,27 @@ const ExampleWrapper = styled.div`
     }
 `
 
+export const StyledButton = styled.button`
+    font-family: 'Rethink Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: ${themes.colors.primaryDark};
+    color: ${themes.colors.secondaryLight};
+    padding: 5px 8px;
+    border: 0;
+    border-radius: ${themes.radius};
+    cursor: pointer;
+    @media (max-width: 768px) {
+        font-size: 2.6vw;
+    }
+`
+
 export const StyledLabel = styled.label`
     font-weight: 600;
     background-color: ${themes.colors.primaryDark};
     color: ${themes.colors.secondaryLight};
     padding: 5px 8px;
+    border: 0;
     border-radius: ${themes.radius};
     @media (max-width: 768px) {
         font-size: 2.6vw;
@@ -125,6 +141,21 @@ export const BoxShadowExample = () => {
         <ExampleWrapper>
             <StyledDiv style={{boxShadow: themes.boxShadow}}/>
             <Codeblock codeString={'box-shadow: ${themes.boxShadow};'}>
+            </Codeblock>
+        </ExampleWrapper>
+    );
+}
+
+export const BlurExample = () => {
+    return (
+        <ExampleWrapper>
+            <StyledDiv style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'}}>
+                <h1 style={{margin: '0', filter: themes.blur,}}>Hello there!</h1>
+            </StyledDiv>
+            <Codeblock codeString={'filter: ${themes.blur}'}>
             </Codeblock>
         </ExampleWrapper>
     );

@@ -7,7 +7,7 @@ pagination_prev: null
 import { Tooltip } from '../../src/components/Tooltip'
 import Codeblock from './utils/Codeblock'
 import { PropsDropdown } from './utils/ComponentButton'
-import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
+import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 
 <hr/>
 
@@ -59,41 +59,34 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="top">
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>
-
-
-<br/>
 
 ## Bottom
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="bottom">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="bottom">
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>
-
-<br/>
 
 ## Left
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="left">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="left">
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>
-
-<br/>
 
 ## Right
 <Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="right">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="right">
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>
 
@@ -102,7 +95,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" setOpen={true}>
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>
 
@@ -111,7 +104,7 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" isDark={true}>
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>
 
@@ -120,6 +113,6 @@ import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" hidePointer={true}>
-    <StyledLabel>Hover Me</StyledLabel>
+    <StyledButton>Hover Me</StyledButton>
   </Tooltip>
 </Codeblock>

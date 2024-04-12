@@ -9,7 +9,7 @@ interface Props {
     position?: 'top' | 'right' | 'bottom' | 'left'
     isDark?: boolean
     setOpen?: boolean
-    hidePointer?: boolean;
+    hidePointer?: boolean
 }
 
 const TooltipWrapper = styled.div`

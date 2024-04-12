@@ -7,8 +7,8 @@ pagination_prev: null
 import { Drawer, Button } from '../../src/components';
 import Codeblock from './utils/Codeblock'
 import { PropsDropdown } from './utils/ComponentButton'
-import { StyledLabel } from '../Guidelines/utils/Guidelines.styles'
-import { useState } from 'react';
+import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
+import { useState, useRef, useCallback } from 'react';
 
 <hr/>
 
@@ -16,7 +16,27 @@ import { useState } from 'react';
 
 <hr/>
 
-<PropsDropdown value="Figma file" link="">
+export const DrawerExample = (props) => {
+  const { position } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = useCallback(() => setIsOpen(true), []);
+  const handleClose = useCallback(() => setIsOpen(false), []);
+
+  return (
+    <>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <StyledButton onClick={handleOpen}>
+          {isOpen ? "Click to close Drawer" : "Click to open Drawer"}
+        </StyledButton>
+      </div>
+      <Drawer isOpen={isOpen} onClose={handleClose} position={position}>
+        <p>This is the Drawer content!</p>
+      </Drawer>
+    </>
+  );
+};
+
+<PropsDropdown value="Figma file" link="https://www.figma.com/file/UHPi7heCn4yoYWgu1eTThx/SDK---Design-System?type=design&node-id=2035%3A3&mode=dev&t=ZFcButoFiwEnfLYN-1">
   <tr>
     <th>Prop</th>
     <th>Type</th>
@@ -50,19 +70,6 @@ import { useState } from 'react';
 </PropsDropdown>
 
 ## Default (Right)
-
-export const DrawerExample = (props) => {
-  const { position } = props;
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
-  return (
-    <>
-      <div style={{display: "flex", justifyContent: "center"}}><StyledLabel onClick={() => setDrawerOpen(true)}>Click to open Drawer</StyledLabel></div>
-      <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} position={position}>
-        <p>This is the Drawer content!</p>
-      </Drawer>
-    </>
-  );
-};
 
 <Codeblock codeString={`const [isDrawerOpen, setDrawerOpen] = useState(false);
 

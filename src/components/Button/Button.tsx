@@ -38,10 +38,23 @@ const StyledButton = styled.button<{ $isDark?: boolean }>`
     }
 `
 
-const Button: FC<Props> = ({ isDark = false, disabled, children, onClick, id, name }) => {
+const Button: FC<Props> = ({
+    isDark = false,
+    disabled,
+    children,
+    onClick,
+    id,
+    name,
+}) => {
     return (
-        <StyledButton $isDark={isDark} disabled={disabled} onClick={onClick} id={id} name={name}>
-            { children }
+        <StyledButton
+            $isDark={isDark}
+            disabled={disabled}
+            onClick={onClick}
+            id={id}
+            name={name}
+        >
+            {children}
         </StyledButton>
     )
 }
