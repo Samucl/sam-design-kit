@@ -18,14 +18,11 @@ const DrawerWrapper = styled.div<{
     background-color: ${themes.colors.primary};
     border-radius: ${themes.radius};
     margin: 15px;
-    transition: transform 0.3s ease-in-out;
+    transition:
+        transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
     z-index: 1001;
-
-    ${({ isOpen }) =>
-        !isOpen &&
-        `
-      visibility: hidden;
-    `}
+    visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
 
     ${(props) => {
         switch (props.$position) {
@@ -73,7 +70,7 @@ const DrawerWrapper = styled.div<{
                 return css``
         }
     }}
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
         width: calc(100% - 30px);
         ${(props) =>
             (props.$position === 'top' || props.$position === 'bottom') &&
