@@ -20,30 +20,63 @@ const StyledCheckboxWrapper = styled.label<{ $isDark?: boolean, $disabled?: bool
     font-weight: 600;
     font-size: 1rem;
     color: ${(props) =>
-        props.$isDark
-            ? themes.colors.highlightPrimary
-            : themes.colors.primaryLight};
+        props.$disabled
+            ? themes.colors.disabledPrimary
+            : themes.colors.primaryDark};
     cursor: ${(props) => (props.$disabled ? 'not-allowed' : 'pointer')};
 `
 
 const StyledCheckbox = styled.input<{ $isDark?: boolean }>`
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
-    border: 2px solid ${themes.colors.highlightPrimary};
-    background-color: ${(props) =>
-        props.$isDark ? themes.colors.primaryDark : themes.colors.primary};
-    border-radius: ${themes.radius};
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    min-height: 26px;
+    border-radius: 0.4rem;
+    margin: 0;
+    margin-right: 0.6rem;
     cursor: pointer;
+    box-shadow: ${themes.boxShadow};
+    background-color: ${themes.colors.white}; /* Default background color */
+    transition: background-color 0.3s ease;
 
-    &:disabled {
-        background-color: ${themes.colors.primaryLight};
-        border: 0;
-        cursor: not-allowed;
+    &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        clip-path: polygon(
+            28% 38%,
+            41% 53%,
+            75% 24%,
+            86% 38%,
+            40% 78%,
+            15% 50%
+        );
+        transform: scale(0);
+        background-color: ${(props) =>
+        props.$isDark
+            ? themes.colors.highlightPrimary
+            : themes.colors.primaryLight};
+        transition: transform 0.3s ease;
     }
 
     &:checked {
-        background-color: ${themes.colors.highlightPrimary};
+        background-color: ${(props) =>
+        props.$isDark
+            ? themes.colors.primaryDark
+            : themes.colors.primary};
+    }
+
+    &:checked::before {
+        transform: scale(3);
+    }
+
+    &:disabled {
+        background-color: ${themes.colors.primaryLight};
+        box-shadow: none;
     }
 `
 
