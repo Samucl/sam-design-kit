@@ -104,6 +104,50 @@ const ColorLabel = styled.label`
     border-radius: 0 0 ${themes.radius} ${themes.radius};
 `;
 
+const FontSizeWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: ${themes.radius};
+    padding-top: 20px;
+`;
+
+const FontTypeBox = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: ${themes.colors.secondary};
+    border-radius: ${themes.radius};
+    width: 100px;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 800;
+    color: ${themes.colors.white};
+`;
+
+const FontTypeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: ${themes.colors.white};
+    border-radius: ${themes.radius};
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 800;
+    color: ${themes.colors.primaryDark};
+    margin-bottom: 20px;
+    
+    > p {
+        margin: 0;
+        @media (max-width: 768px) {
+            font-size: 5vw;
+            font-weight: 800;
+        }
+    }
+`;
+
 export const ColorCombintation = ({primary, secondary, primaryLabel, secondaryLabel} : {primary: string, secondary: string, primaryLabel: string, secondaryLabel: string}) => {
     return (
         <ColorCardWrapper>
@@ -164,14 +208,24 @@ export const BlurExample = () => {
 export const FontScales = () => {
     return (
         <>
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <p style={{fontSize: '28px', fontWeight: '600'}}>Subtitle</p>
-            <p style={{fontSize: '18px', fontWeight: '600'}}>Body 1 (Semibold)</p>
-            <p style={{fontSize: '18px'}}>Body 1 (Regular)</p>
-            <p style={{fontSize: '16px', fontWeight: '600'}}>Body 2 (Semibold)</p>
-            <p style={{fontSize: '16px'}}>Body 2 (Regular)</p>
+        <FontTypeWrapper>
+            <FontTypeBox>
+                Aa
+            </FontTypeBox>
+            <p>Rethink Sans</p>
+        </FontTypeWrapper>
+            <FontSizeWrapper>
+                <div style={{textAlign: 'left'}}>
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <p style={{fontSize: '28px', fontWeight: '600'}}>Subtitle</p>
+                    <p style={{fontSize: '18px', fontWeight: '600'}}>Body 1 (Semibold)</p>
+                    <p style={{fontSize: '18px'}}>Body 1 (Regular)</p>
+                    <p style={{fontSize: '16px', fontWeight: '600'}}>Body 2 (Semibold)</p>
+                    <p style={{fontSize: '16px'}}>Body 2 (Regular)</p>
+                </div>
+            </FontSizeWrapper>
         </>
     );
 }
@@ -179,11 +233,18 @@ export const FontScales = () => {
 export const FontWeights = () => {
     return (
         <>
-            <p style={{fontWeight: '400'}}>400 - Regular</p>
-            <p style={{fontWeight: '500'}}>500 - Medium</p>
-            <p style={{fontWeight: '600'}}>600 - Semibold</p>
-            <p style={{fontWeight: '700'}}>700 - Bold</p>
-            <p style={{fontWeight: '800'}}>800 - Extrabold</p>
+            <FontTypeWrapper style={{fontSize: '20px', paddingLeft: '20px'}}>
+                <p>5 Font weights available</p>
+            </FontTypeWrapper>
+            <FontSizeWrapper>
+                <div style={{textAlign: 'left'}}>
+                    <p style={{fontWeight: '400'}}>400 - Regular</p>
+                    <p style={{fontWeight: '500'}}>500 - Medium</p>
+                    <p style={{fontWeight: '600'}}>600 - Semibold</p>
+                    <p style={{fontWeight: '700'}}>700 - Bold</p>
+                    <p style={{fontWeight: '800'}}>800 - Extrabold</p>
+                </div>
+            </FontSizeWrapper>
         </>
     );
 }

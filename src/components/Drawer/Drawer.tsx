@@ -8,14 +8,17 @@ interface Props {
     isOpen: boolean
     onClose: () => void
     position?: 'left' | 'right' | 'top' | 'bottom'
+    isDark?: boolean
 }
 
 const DrawerWrapper = styled.div<{
     isOpen: boolean
     $position: Props['position']
+    $isDark: boolean
 }>`
     position: fixed;
-    background-color: ${themes.colors.primary};
+    background-color: ${(props) =>
+        props.$isDark ? themes.colors.primaryDark : themes.colors.primary};
     border-radius: ${themes.radius};
     margin: 15px;
     transition:
@@ -80,16 +83,20 @@ const DrawerWrapper = styled.div<{
     }
 `
 
-const CloseButton = styled.button`
+const CloseButton = styled.button<{ $isDark: boolean }>`
     font-family: 'Rethink Sans', sans-serif;
     font-size: 1rem;
     padding: 8px;
-    background-color: ${themes.colors.primaryDark};
-    color: ${themes.colors.highlightPrimary};
+    background-color: ${(props) =>
+        props.$isDark ? themes.colors.primary : themes.colors.primaryDark};
+    color: ${(props) =>
+        props.$isDark
+            ? themes.colors.primaryLight
+            : themes.colors.highlightPrimary};
     border: none;
     cursor: pointer;
     position: absolute;
-    border-radius: ${themes.radius};
+    border-radius: 0 ${themes.radius} 0 ${themes.radius};
     top: 0;
     right: 0;
 
@@ -98,10 +105,14 @@ const CloseButton = styled.button`
     }
 `
 
-const DrawerContent = styled.div`
+const DrawerContent = styled.div<{ $isDark: boolean }>`
     padding: 20px;
     font-family: 'Rethink Sans', sans-serif;
-    color: ${themes.colors.primaryLight};
+    font-size: 1rem;
+    color: ${(props) =>
+        props.$isDark
+            ? themes.colors.highlightPrimary
+            : themes.colors.primaryLight};
 `
 
 const DrawerOverlay = styled.div<{ isOpen: boolean }>`
@@ -124,6 +135,7 @@ const Drawer: FC<Props> = ({
     isOpen,
     onClose,
     position = 'right',
+    isDark = false,
 }) => {
     return (
         <>
@@ -136,8 +148,10 @@ const Drawer: FC<Props> = ({
                 isOpen={isOpen}
                 $position={position}
                 onClick={(e) => e.stopPropagation()}
+                $isDark={isDark}
             >
                 <CloseButton
+                    $isDark={isDark}
                     onClick={(e) => {
                         e.stopPropagation()
                         onClose()
@@ -145,7 +159,7 @@ const Drawer: FC<Props> = ({
                 >
                     Close
                 </CloseButton>
-                <DrawerContent>{children}</DrawerContent>
+                <DrawerContent $isDark={isDark}>{children}</DrawerContent>
             </DrawerWrapper>
         </>
     )

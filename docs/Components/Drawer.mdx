@@ -17,7 +17,7 @@ import { useState, useRef, useCallback } from 'react';
 <hr/>
 
 export const DrawerExample = (props) => {
-  const { position } = props;
+  const { position, isDark } = props;
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = useCallback(() => setIsOpen(true), []);
   const handleClose = useCallback(() => setIsOpen(false), []);
@@ -29,7 +29,7 @@ export const DrawerExample = (props) => {
           {isOpen ? "Click to close Drawer" : "Click to open Drawer"}
         </StyledButton>
       </div>
-      <Drawer isOpen={isOpen} onClose={handleClose} position={position}>
+      <Drawer isOpen={isOpen} onClose={handleClose} position={position} isDark={isDark}>
         <p>This is the Drawer content!</p>
       </Drawer>
     </>
@@ -127,4 +127,19 @@ return (
   </Drawer>
 );`}>
     <DrawerExample position={"bottom"}/>
+</Codeblock>
+
+## Dark
+
+<Codeblock codeString={`const [isOpen, setIsOpen] = useState(false);
+const handleOpen = useCallback(() => setIsOpen(true), []);
+const handleClose = useCallback(() => setIsOpen(false), []);
+
+return (
+  <button onClick={handleOpen}/> // Toggle
+  <Drawer isOpen={isOpen} onClose={handleClose} isDark={true}>
+    <p>This is the Drawer content!</p>
+  </Drawer>
+);`}>
+    <DrawerExample position={"right"} isDark={true}/>
 </Codeblock>
