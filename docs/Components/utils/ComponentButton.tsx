@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { themes } from '../../../src/themes';
 
 interface Props {
-  children: React.ReactElement
+  children?: React.ReactElement
   value?: string
   link?: string
 }
@@ -31,26 +31,27 @@ const StyledTable = styled.table`
 `
 
 export const PropsDropdown: React.FC<Props> = ({ children, value, link }) => {
+  const [showProps, setShowProps] = useState(false);
 
-  const [showProps, setShowProps] = useState(false)
-
-    const handleShowProps = () => {
-      setShowProps(!showProps)
-    }
-
-    return (
-      <>
-      <ButtonWrapper>
-        <StyledButton onClick={handleShowProps}>Show props</StyledButton>
-        <a href={link}>
-          <StyledButton>{ value }</StyledButton>
-        </a> 
-      </ButtonWrapper>
-      {showProps &&
-        <StyledTable>
-        { children }
-        </StyledTable>
-      }
-      </>
-    );
+  const handleShowProps = () => {
+    setShowProps(!showProps);
   };
+
+  return (
+    <>
+      <ButtonWrapper>
+        {children && <StyledButton onClick={handleShowProps}>Show props</StyledButton>}
+        {link && value && (
+          <a href={link}>
+            <StyledButton>{value}</StyledButton>
+          </a>
+        )}
+      </ButtonWrapper>
+      {showProps && children && (
+        <StyledTable>
+          {children}
+        </StyledTable>
+      )}
+    </>
+  );
+};

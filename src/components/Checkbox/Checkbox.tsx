@@ -13,7 +13,10 @@ interface Props {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const StyledCheckboxWrapper = styled.label<{ $isDark?: boolean, $disabled?: boolean }>`
+const StyledCheckboxWrapper = styled.label<{
+    $isDark?: boolean
+    $disabled?: boolean
+}>`
     display: flex;
     align-items: center;
     font-family: 'Rethink Sans', sans-serif;
@@ -57,17 +60,15 @@ const StyledCheckbox = styled.input<{ $isDark?: boolean }>`
         );
         transform: scale(0);
         background-color: ${(props) =>
-        props.$isDark
-            ? themes.colors.highlightPrimary
-            : themes.colors.primaryLight};
+            props.$isDark
+                ? themes.colors.highlightPrimary
+                : themes.colors.primaryLight};
         transition: transform 0.3s ease;
     }
 
     &:checked {
         background-color: ${(props) =>
-        props.$isDark
-            ? themes.colors.primaryDark
-            : themes.colors.primary};
+            props.$isDark ? themes.colors.primaryDark : themes.colors.primary};
     }
 
     &:checked::before {
@@ -80,11 +81,19 @@ const StyledCheckbox = styled.input<{ $isDark?: boolean }>`
     }
 `
 
-const Checkbox: FC<Props> = ({ isDark = false, disabled = false, id, name, checked, onChange, children }) => {
+const Checkbox: FC<Props> = ({
+    isDark = false,
+    disabled = false,
+    id,
+    name,
+    checked,
+    onChange,
+    children,
+}) => {
     return (
         <StyledCheckboxWrapper $isDark={isDark} $disabled={disabled}>
             <StyledCheckbox
-                type="checkbox"
+                type='checkbox'
                 $isDark={isDark}
                 disabled={disabled}
                 id={id}

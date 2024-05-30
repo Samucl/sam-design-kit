@@ -1,18 +1,5 @@
 @import './fonts.css';
 
-:root {
-    font-family: 'Rethink Sans', sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    font-family: 'Rethink Sans', sans-serif;
-    font-weight: 800;
-}
-
 main {
     padding: 20px;
 }
@@ -67,4 +54,7 @@ aside li:first-child a {
     --ifm-spacing-horizontal: 40px;
     --doc-sidebar-width: 200px !important;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-h1-font-size: 60px !important;
+    --ifm-h2-font-size: 48px !important;
+    --ifm-h3-font-size: 40px !important;
 }

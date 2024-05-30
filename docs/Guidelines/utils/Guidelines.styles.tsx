@@ -160,3 +160,30 @@ export const BlurExample = () => {
         </ExampleWrapper>
     );
 }
+
+export const FontScales = () => {
+    return (
+        <>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <p style={{fontSize: '28px', fontWeight: '600'}}>Subtitle</p>
+            <p style={{fontSize: '18px', fontWeight: '600'}}>Body 1 (Semibold)</p>
+            <p style={{fontSize: '18px'}}>Body 1 (Regular)</p>
+            <p style={{fontSize: '16px', fontWeight: '600'}}>Body 2 (Semibold)</p>
+            <p style={{fontSize: '16px'}}>Body 2 (Regular)</p>
+        </>
+    );
+}
+
+export const FontWeights = () => {
+    return (
+        <>
+            <p style={{fontWeight: '400'}}>400 - Regular</p>
+            <p style={{fontWeight: '500'}}>500 - Medium</p>
+            <p style={{fontWeight: '600'}}>600 - Semibold</p>
+            <p style={{fontWeight: '700'}}>700 - Bold</p>
+            <p style={{fontWeight: '800'}}>800 - Extrabold</p>
+        </>
+    );
+}
