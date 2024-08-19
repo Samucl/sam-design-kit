@@ -9,7 +9,7 @@ interface Props {
     disabled?: boolean
     id?: string
     name?: string
-    onClick: (e: MouseEvent<HTMLElement>) => void
+    onClick?: (e: MouseEvent<HTMLElement>) => void
 }
 
 const StyledButton = styled.button<{ $isDark?: boolean }>`

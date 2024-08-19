@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { themes } from '../../../src/themes/index' 
 import Codeblock  from '../../Components/utils/Codeblock';
+import * as icons from '../../../src/icons/tsx/index';
 
 export const StyledDiv = styled.div`
     height: 100px; 
@@ -148,6 +149,28 @@ const FontTypeWrapper = styled.div`
     }
 `;
 
+const IconsWrapper = styled.div`
+    background-color: ${themes.colors.white};
+    border-radius: ${themes.radius};
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+`
+
+const IconWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: ${themes.colors.white};
+    padding: 10px;
+    padding-bottom: 5px;
+`
+
 export const ColorCombintation = ({primary, secondary, primaryLabel, secondaryLabel} : {primary: string, secondary: string, primaryLabel: string, secondaryLabel: string}) => {
     return (
         <ColorCardWrapper>
@@ -205,6 +228,21 @@ export const BlurExample = () => {
     );
 }
 
+export const IconsExample = () => {
+    return (
+        <ExampleWrapper>
+            <Codeblock codeString=
+            {`// Example for "User" icon
+import { User } from 'sam-design-kit'
+
+return (
+    <User size='30px'/>
+)`}>
+            </Codeblock>
+        </ExampleWrapper>
+    );
+}
+
 export const FontScales = () => {
     return (
         <>
@@ -246,5 +284,32 @@ export const FontWeights = () => {
                 </div>
             </FontSizeWrapper>
         </>
+    );
+}
+
+type IconName = keyof typeof icons;
+
+const AllIcons = () => {
+    return (
+        <>
+            {Object.keys(icons).map((iconName) => {
+                const IconSvg = icons[iconName as IconName];
+                return (
+                    <IconWrapper key={iconName}>
+                        <IconSvg size='40px'/>
+                        {iconName}
+                    </IconWrapper>
+                );
+            })}
+        </>
+    );
+    
+}
+
+export const Icons = () => {
+    return (
+        <IconsWrapper>
+            <AllIcons />
+        </IconsWrapper>
     );
 }
