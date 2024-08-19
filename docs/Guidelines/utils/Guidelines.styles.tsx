@@ -12,10 +12,11 @@ export const StyledDiv = styled.div`
 
 const ExampleWrapper = styled.div`
     margin-top: 10px;
-    width: 30vw;
+    width: 40vw;
     min-width: 300px;
     @media (max-width: 768px) {
         width: 100%;
+        min-width: 100px;
     }
 `
 

@@ -48,7 +48,7 @@ aside li:first-child a {
     --ifm-background-surface-color: white;
     --ifm-toc-border-color: transparent;
     --ifm-background-color: var(--sdk-color-primary-light);
-    --ifm-code-font-size: 95%;
+    --ifm-code-font-size: 85%;
     --ifm-heading-color: var(--sdk-color-primary-dark);
     --ifm-menu-color-active: var(--sdk-color-primary);
     --ifm-spacing-horizontal: 40px;
