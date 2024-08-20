@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { themes } from '../../themes'
 import '../../themes/fonts.css'
+import { X } from '../../icons/tsx'
 
 interface Props {
     children?: ReactNode
@@ -99,6 +100,7 @@ const CloseButton = styled.button<{ $isDark: boolean }>`
     border-radius: 0 ${themes.radius} 0 ${themes.radius};
     top: 0;
     right: 0;
+    display: flex;
 
     &:focus {
         outline: 2px solid ${themes.colors.primary};
@@ -157,7 +159,7 @@ const Drawer: FC<Props> = ({
                         onClose()
                     }}
                 >
-                    Close
+                    <X color={themes.colors.primaryLight}/>
                 </CloseButton>
                 <DrawerContent $isDark={isDark}>{children}</DrawerContent>
             </DrawerWrapper>

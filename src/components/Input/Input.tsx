@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { themes } from '../../themes'
 import '../../themes/fonts.css'
+import { EyeSlash, Eye } from '../../icons/tsx'
 
 type Status = 'error' | 'success'
 
@@ -13,6 +14,7 @@ interface Props {
     label?: string
     status?: Status
     value?: string
+    type?: string
 }
 
 const InputWrapper = styled.div<{
@@ -172,6 +174,7 @@ const IconWrapper = styled.div<{ $status?: Status }>`
     padding: 10px;
     padding-left: 0;
     border-radius: 0 calc(${themes.radius} - 2px) calc(${themes.radius} - 2px) 0;
+    cursor: pointer;
 `
 
 const Input: FC<Props> = ({
@@ -182,11 +185,17 @@ const Input: FC<Props> = ({
     label,
     status,
     value = '',
+    type,
 }) => {
     const [inputValue, setInputValue] = useState(value)
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value.slice(0, charLimit))
+    }
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword)
     }
 
     return (
@@ -204,12 +213,16 @@ const Input: FC<Props> = ({
                     onChange={handleInputChange}
                     maxLength={charLimit}
                     disabled={disabled}
+                    type={showPassword && type === 'password' ? 'text' : type}
                 />
                 {charLimit && (
                     <AmountLabel>{`${inputValue.length}/${charLimit}`}</AmountLabel>
                 )}
-
-                {/* TODO: When icons done <IconWrapper></IconWrapper>*/}
+                {type === 'password' && (
+                    <IconWrapper onClick={togglePasswordVisibility}>
+                        {showPassword ? <EyeSlash /> : <Eye />}
+                    </IconWrapper>
+                )}
             </InputWrapper>
             {label && <StyledLabel>{label}</StyledLabel>}
         </>

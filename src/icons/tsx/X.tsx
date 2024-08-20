@@ -1,4 +1,4 @@
-const X = ({ size = '24px' }) => (
+const X = ({ size = '24px', color = '#000000' }) => (
     <svg
         width={size}
         height={size}
@@ -13,7 +13,7 @@ const X = ({ size = '24px' }) => (
             height='27'
             rx='2'
             transform='rotate(45 20.0919 1)'
-            fill='black'
+            fill={color}
         />
         <rect
             x='1'
@@ -22,7 +22,7 @@ const X = ({ size = '24px' }) => (
             height='27'
             rx='2'
             transform='rotate(-45 1 4.53553)'
-            fill='black'
+            fill={color}
         />
     </svg>
 )
