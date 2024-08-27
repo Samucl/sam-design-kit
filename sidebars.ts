@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
     'Components/Tooltip',
     'Components/Drawer',
     'Components/Checkbox',
+    'Components/Expander',
   ],
 };
 

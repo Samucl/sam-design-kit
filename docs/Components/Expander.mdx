@@ -1,0 +1,88 @@
+---
+title: Expander
+pagination_next: null
+pagination_prev: null
+---
+
+import { Expander } from '../../src/components';
+import Codeblock from './utils/Codeblock'
+import { PropsDropdown } from './utils/ComponentButton'
+
+<hr/>
+
+<p>The Expander component allows users to reveal or hide content dynamically, providing a simple and intuitive way to manage and navigate through information.</p>
+
+<hr/>
+
+<PropsDropdown value="Figma file" link="https://www.figma.com/design/UHPi7heCn4yoYWgu1eTThx/SDK---Design-System?node-id=2114-3">
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>children</td>
+    <td>ReactNode</td>
+    <td>N/A</td>
+    <td>The content displayed in the Expander</td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>The title for the Expander</td>
+  </tr>
+  <tr>
+    <td>isOpenInitially</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the Expander open initially</td>
+  </tr>
+  <tr>
+    <td>theme</td>
+    <td>'dark' | 'transparent'</td>
+    <td>N/A</td>
+    <td>The option for dark or tranparent mode</td>
+  </tr>
+</PropsDropdown>
+
+## Default
+
+<Codeblock codeString={`<Expander title="Expander">
+    <text>This is Expander content</text>
+</Expander>`}>
+    <Expander title="Expander">
+            <text>This is Expander content</text>
+    </Expander>
+</Codeblock>
+
+## Dark
+
+<Codeblock codeString={`<Expander title="Expander" theme='dark'>
+    <text>This is Expander content</text>
+</Expander>`}>
+    <Expander title="Expander" theme='dark'>
+            <text>This is Expander content</text>
+    </Expander>
+</Codeblock>
+
+## Transparent
+
+<Codeblock codeString={`<Expander title="Expander" theme='transparent'>
+    <text>This is Expander content</text>
+</Expander>`}>
+    <Expander title="Expander" theme='transparent'>
+            <text>This is Expander content</text>
+    </Expander>
+</Codeblock>
+
+## Open initially
+
+<Codeblock codeString={`<Expander title="Expander" isOpenInitially={true}>
+    <text>This is Expander content</text>
+</Expander>`}>
+    <Expander title="Expander" isOpenInitially={true}>
+            <text>This is Expander content</text>
+    </Expander>
+</Codeblock>

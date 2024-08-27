@@ -159,7 +159,7 @@ const Drawer: FC<Props> = ({
                         onClose()
                     }}
                 >
-                    <X color={themes.colors.primaryLight}/>
+                    <X color={themes.colors.primaryLight} />
                 </CloseButton>
                 <DrawerContent $isDark={isDark}>{children}</DrawerContent>
             </DrawerWrapper>
