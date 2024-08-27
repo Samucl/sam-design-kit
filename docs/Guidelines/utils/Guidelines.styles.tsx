@@ -8,7 +8,7 @@ export const StyledDiv = styled.div`
     background: linear-gradient(180deg, ${themes.colors.secondary} 0%,
         ${themes.colors.highlightSecondary} 100%);
     margin-bottom: 10px;
-`
+`;
 
 const ExampleWrapper = styled.div`
     margin-top: 10px;
@@ -18,7 +18,7 @@ const ExampleWrapper = styled.div`
         width: 100%;
         min-width: 100px;
     }
-`
+`;
 
 export const StyledButton = styled.button`
     font-family: 'Rethink Sans', sans-serif;
@@ -33,7 +33,7 @@ export const StyledButton = styled.button`
     @media (max-width: 768px) {
         font-size: 2.6vw;
     }
-`
+`;
 
 export const StyledLabel = styled.label`
     font-weight: 600;
@@ -45,7 +45,7 @@ export const StyledLabel = styled.label`
     @media (max-width: 768px) {
         font-size: 2.6vw;
     }
-`
+`;
 
 export const ColorWrapper = styled.div`
     display: flex;
@@ -94,7 +94,7 @@ const ColorCombinationLabel = styled.label<{ $secondary: string }>`
     font-weight: 700;
     white-space: pre-wrap;
     margin-left: 10px;
-`
+`;
 
 const ColorLabel = styled.label`
     width: 100%;
@@ -157,10 +157,11 @@ const IconsWrapper = styled.div`
     height: 100%;
     padding: 10px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 10px;
-`
+`;
 
 const IconWrapper = styled.div`
     display: flex;
@@ -170,7 +171,7 @@ const IconWrapper = styled.div`
     background-color: ${themes.colors.white};
     padding: 10px;
     padding-bottom: 5px;
-`
+`;
 
 export const ColorCombintation = ({primary, secondary, primaryLabel, secondaryLabel} : {primary: string, secondary: string, primaryLabel: string, secondaryLabel: string}) => {
     return (
