@@ -13,6 +13,34 @@ interface ArrowButtonProps {
     $isDark?: boolean;
 }
 
+const CarouselWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+
+const IndicatorContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+`;
+
+const Indicator = styled.div<{ isActive: boolean; $isDark?: boolean }>`
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: ${(props) =>
+        props.isActive
+            ? props.$isDark
+                ? themes.colors.highlightPrimary
+                : themes.colors.primary
+            : props.$isDark
+            ? themes.colors.primaryDark
+            : themes.colors.secondary};
+`;
+
 const CarouselContainer = styled.div`
     display: flex;
     align-items: center;
@@ -63,10 +91,16 @@ const ArrowButton = styled.button<ArrowButtonProps>`
 
 const ArrowLeft = styled(ArrowButton)`
     left: 10px;
+    &:hover {
+        opacity: 45%;
+    }
 `;
 
 const ArrowRight = styled(ArrowButton)`
     right: 10px;
+    &:hover {
+        opacity: 45%;
+    }
 `;
 
 const Carousel: FC<CarouselProps> = ({ children, isDark = false, visibleItems = 1 }) => {
@@ -85,21 +119,28 @@ const Carousel: FC<CarouselProps> = ({ children, isDark = false, visibleItems = 
     };
 
     return (
-        <CarouselContainer>
-            <ArrowLeft onClick={handlePrev} $isDark={isDark}>
-                {'<'}
-            </ArrowLeft>
-            <CarouselContent currentIndex={currentIndex} visibleItems={visibleItems}>
-                {children.map((child, index) => (
-                    <CarouselItem key={index} visibleItems={visibleItems}>
-                        {child}
-                    </CarouselItem>
+        <CarouselWrapper>
+            <IndicatorContainer>
+                {children.map((_, index) => (
+                    <Indicator key={index} isActive={index === currentIndex} $isDark={isDark} />
                 ))}
-            </CarouselContent>
-            <ArrowRight onClick={handleNext} $isDark={isDark}>
-                {'>'}
-            </ArrowRight>
-        </CarouselContainer>
+            </IndicatorContainer>
+            <CarouselContainer>
+                <ArrowLeft onClick={handlePrev} $isDark={isDark}>
+                    {'<'}
+                </ArrowLeft>
+                <CarouselContent currentIndex={currentIndex} visibleItems={visibleItems}>
+                    {children.map((child, index) => (
+                        <CarouselItem key={index} visibleItems={visibleItems}>
+                            {child}
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <ArrowRight onClick={handleNext} $isDark={isDark}>
+                    {'>'}
+                </ArrowRight>
+            </CarouselContainer>
+        </CarouselWrapper>
     );
 };
 

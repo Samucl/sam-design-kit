@@ -5,12 +5,13 @@ pagination_prev: null
 ---
 
 import { Carousel } from '../../src/components';
+import { CarouselItem } from './utils/Components.styles'
 import Codeblock from './utils/Codeblock'
 import { PropsDropdown } from './utils/ComponentButton'
 
 <hr/>
 
-<p>Coming soon...</p>
+<p>Carousel lets users effortlessly navigate through a series of options, making exploration and selection a seamless.</p>
 
 <hr/>
 
@@ -27,40 +28,63 @@ import { PropsDropdown } from './utils/ComponentButton'
     <td>false</td>
     <td>The option for dark mode</td>
   </tr>
+  <tr>
+    <td>visibleItems</td>
+    <td>number</td>
+    <td>1</td>
+    <td>Amount of visible items</td>
+  </tr>
 </PropsDropdown>
 
 ## Default
 
-<Codeblock codeString={`Coming soon...`}>
+<Codeblock codeString={`<Carousel>
+    <CarouselItem label="Carousel item 1"/>
+    <CarouselItem label="Carousel item 2"/>
+    <CarouselItem label="Carousel item 3"/>
+    <CarouselItem label="Carousel item 4"/>
+    <CarouselItem label="Carousel item 5"/>
+</Carousel>`}>
     <Carousel>
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-            <div>Item 5</div>
-        </Carousel>
+        <CarouselItem label="Carousel item 1"/>
+        <CarouselItem label="Carousel item 2"/>
+        <CarouselItem label="Carousel item 3"/>
+        <CarouselItem label="Carousel item 4"/>
+        <CarouselItem label="Carousel item 5"/>
+    </Carousel>
 </Codeblock>
 
 ## Dark
 
-<Codeblock codeString={`Coming soon...`}>
+<Codeblock codeString={`<Carousel isDark>
+    <CarouselItem label="Carousel item 1"/>
+    <CarouselItem label="Carousel item 2"/>
+    <CarouselItem label="Carousel item 3"/>
+    <CarouselItem label="Carousel item 4"/>
+    <CarouselItem label="Carousel item 5"/>
+</Carousel>`}>
     <Carousel isDark>
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-            <div>Item 5</div>
-        </Carousel>
+        <CarouselItem label="Carousel item 1"/>
+        <CarouselItem label="Carousel item 2"/>
+        <CarouselItem label="Carousel item 3"/>
+        <CarouselItem label="Carousel item 4"/>
+        <CarouselItem label="Carousel item 5"/>
+    </Carousel>
 </Codeblock>
 
 ## Visible items
-
-<Codeblock codeString={`Coming soon...`}>
+<Codeblock codeString={`<Carousel visibleItems={3}>
+    <CarouselItem label="Carousel item 1"/>
+    <CarouselItem label="Carousel item 2"/>
+    <CarouselItem label="Carousel item 3"/>
+    <CarouselItem label="Carousel item 4"/>
+    <CarouselItem label="Carousel item 5"/>
+</Carousel>`}>
     <Carousel visibleItems={3}>
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-            <div>Item 5</div>
-        </Carousel>
+        <CarouselItem label="Carousel item 1"/>
+        <CarouselItem label="Carousel item 2"/>
+        <CarouselItem label="Carousel item 3"/>
+        <CarouselItem label="Carousel item 4"/>
+        <CarouselItem label="Carousel item 5"/>
+    </Carousel>
 </Codeblock>
