@@ -1,0 +1,66 @@
+---
+title: Carousel
+pagination_next: null
+pagination_prev: null
+---
+
+import { Carousel } from '../../src/components';
+import Codeblock from './utils/Codeblock'
+import { PropsDropdown } from './utils/ComponentButton'
+
+<hr/>
+
+<p>Coming soon...</p>
+
+<hr/>
+
+<PropsDropdown value="Figma file" link="/">
+  <tr>
+    <td>children</td>
+    <td>ReactNode</td>
+    <td>N/A</td>
+    <td>The content displayed in the Carousel</td>
+  </tr>
+  <tr>
+    <td>isDark</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>The option for dark mode</td>
+  </tr>
+</PropsDropdown>
+
+## Default
+
+<Codeblock codeString={`Coming soon...`}>
+    <Carousel>
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+        </Carousel>
+</Codeblock>
+
+## Dark
+
+<Codeblock codeString={`Coming soon...`}>
+    <Carousel isDark>
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+        </Carousel>
+</Codeblock>
+
+## Visible items
+
+<Codeblock codeString={`Coming soon...`}>
+    <Carousel visibleItems={3}>
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+        </Carousel>
+</Codeblock>
