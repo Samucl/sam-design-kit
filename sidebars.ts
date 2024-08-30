@@ -27,6 +27,7 @@ const sidebars: SidebarsConfig = {
     'Components/Checkbox',
     'Components/Expander',
     'Components/Carousel',
+    //'Components/Loader',
   ],
 };
 

@@ -76,12 +76,12 @@ const ArrowButton = styled.button<ArrowButtonProps>`
         props.$isDark ? themes.colors.highlightPrimary : themes.colors.primaryLight};
     border: none;
     border-radius: ${themes.radius};
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.8rem;
+    height: 1.8rem;
     cursor: pointer;
     font-family: 'Rethink Sans', sans-serif;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     z-index: 2;
 
     &:focus {
@@ -106,23 +106,30 @@ const ArrowRight = styled(ArrowButton)`
 const Carousel: FC<CarouselProps> = ({ children, isDark = false, visibleItems = 1 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const totalItems = children.length;
+    const totalGroups = totalItems > visibleItems ? totalItems - visibleItems + 1 : 1;
+
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex > 0 ? prevIndex - 1 : children.length - visibleItems
+            prevIndex > 0 ? prevIndex - 1 : totalGroups - 1
         );
     };
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex < children.length - visibleItems ? prevIndex + 1 : 0
+            prevIndex < totalGroups - 1 ? prevIndex + 1 : 0
         );
     };
 
     return (
         <CarouselWrapper>
             <IndicatorContainer>
-                {children.map((_, index) => (
-                    <Indicator key={index} isActive={index === currentIndex} $isDark={isDark} />
+                {Array.from({ length: totalGroups }).map((_, index) => (
+                    <Indicator
+                        key={index}
+                        isActive={index === currentIndex}
+                        $isDark={isDark}
+                    />
                 ))}
             </IndicatorContainer>
             <CarouselContainer>
