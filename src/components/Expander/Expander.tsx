@@ -38,6 +38,7 @@ const ExpanderHeader = styled.button<{ $theme?: Theme }>`
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
+    font-family: 'Rethink Sans', sans-serif;
     border: none;
     display: flex;
     justify-content: space-between;

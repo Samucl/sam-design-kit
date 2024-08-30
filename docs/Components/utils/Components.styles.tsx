@@ -15,7 +15,11 @@ const CarouselItemWrapper = styled.div`
     background-color: white;
     padding: 10px;
     border-radius: ${themes.radius};
-    font-size: 1.7vw;
+    font-size: 1.5vw;
+    font-weight: 600;
+    @media (max-width: 768px) {
+        font-size: 2.2vw;
+    }
 `;
 
 export const CarouselItem = ({label} : {label: string}) => {
