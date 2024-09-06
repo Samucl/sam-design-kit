@@ -1,0 +1,60 @@
+---
+title: Notification
+pagination_next: null
+pagination_prev: null
+---
+
+import { Notification } from '../../src/components';
+import Codeblock from './utils/Codeblock'
+import { PropsDropdown } from './utils/ComponentButton'
+
+<hr/>
+
+<p>...</p>
+
+<hr/>
+
+<PropsDropdown value="Figma file" link="">
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>children</td>
+    <td>ReactNode</td>
+    <td>N/A</td>
+    <td>The content displayed in the Button</td>
+  </tr>
+</PropsDropdown>
+
+## Success
+
+<Codeblock codeString={`<Notification type='success'>Success</Notification>`}>
+    <Notification type='success'><div style={{padding: "10px 15px"}}>This is a success message</div></Notification>
+</Codeblock>
+
+## Warning
+
+<Codeblock codeString={`<Notification type='warning'>Warning</Notification>`}>
+    <Notification type='warning'><div style={{padding: "10px 15px"}}>This is a warning message</div></Notification>
+</Codeblock>
+
+## Error
+
+<Codeblock codeString={`<Notification type='error'>Error</Notification>`}>
+    <Notification type='error'><div style={{padding: "10px 15px"}}>This is a error message</div></Notification>
+</Codeblock>
+
+## Info
+
+<Codeblock codeString={`<Notification type='info'>Info</Notification>`}>
+    <Notification type='info'><div style={{padding: "10px 15px"}}>This is a info message</div></Notification>
+</Codeblock>
+
+## Neutral
+
+<Codeblock codeString={`<Notification type='neutral'>Neutral</Notification>`}>
+    <Notification type='neutral'><div style={{padding: "10px 15px"}}>This is a neutral message</div></Notification>
+</Codeblock>

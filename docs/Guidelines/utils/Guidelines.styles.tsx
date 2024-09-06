@@ -65,7 +65,7 @@ const ColorCardWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     box-shadow: 0px 0px 21px 6px rgba(0,0,0,0.10);
-    width: 250px;
+    width: 200px;
     border-radius: ${themes.radius};
     @media (max-width: 768px) {
         width: 100%;
@@ -74,7 +74,7 @@ const ColorCardWrapper = styled.div`
 
 const ColorDiv = styled.div<{ $color: string }>`
     width: 100%;
-    height: 150px;
+    height: 110px;
     background-color: ${props => props.$color};
     border-radius: ${themes.radius} ${themes.radius} 0 0;
 `;
@@ -90,7 +90,7 @@ const ColorCombinationForeground = styled.div<{ $primary: string }>`
 
 const ColorCombinationLabel = styled.label<{ $secondary: string }>`
     color: ${props => props.$secondary};
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 700;
     white-space: pre-wrap;
     margin-left: 10px;
