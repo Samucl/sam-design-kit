@@ -1,16 +1,16 @@
-import { useState, FC, ReactNode } from 'react';
-import styled from 'styled-components';
-import { themes } from '../../themes';
-import '../../themes/fonts.css';
+import { useState, FC, ReactNode } from 'react'
+import styled from 'styled-components'
+import { themes } from '../../themes'
+import '../../themes/fonts.css'
 
 interface CarouselProps {
-    children: ReactNode[];
-    isDark?: boolean;
-    visibleItems?: number;
+    children: ReactNode[]
+    isDark?: boolean
+    visibleItems?: number
 }
 
 interface ArrowButtonProps {
-    $isDark?: boolean;
+    $isDark?: boolean
 }
 
 const CarouselWrapper = styled.div`
@@ -18,13 +18,13 @@ const CarouselWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-`;
+`
 
 const IndicatorContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 10px;
-`;
+`
 
 const Indicator = styled.div<{ isActive: boolean; $isDark?: boolean }>`
     width: 10px;
@@ -37,9 +37,9 @@ const Indicator = styled.div<{ isActive: boolean; $isDark?: boolean }>`
                 ? themes.colors.highlightPrimary
                 : themes.colors.primary
             : props.$isDark
-            ? themes.colors.primaryDark
-            : themes.colors.secondary};
-`;
+              ? themes.colors.primaryDark
+              : themes.colors.secondary};
+`
 
 const CarouselContainer = styled.div`
     display: flex;
@@ -49,22 +49,26 @@ const CarouselContainer = styled.div`
     width: 100%;
     overflow: hidden;
     padding: 10px;
-`;
+`
 
-const CarouselContent = styled.div<{ currentIndex: number; visibleItems: number }>`
+const CarouselContent = styled.div<{
+    currentIndex: number
+    visibleItems: number
+}>`
     display: flex;
     transition: transform 0.5s ease-in-out;
     transform: ${(props) =>
         `translateX(-${(props.currentIndex * 100) / props.visibleItems}%)`};
-    width: ${(props) => `${props.children.length * (100 / props.visibleItems)}%`};
-`;
+    width: ${(props) =>
+        `${props.children.length * (100 / props.visibleItems)}%`};
+`
 
 const CarouselItem = styled.div<{ visibleItems: number }>`
     min-width: ${(props) => `${100 / props.visibleItems}%`};
     display: flex;
     justify-content: center;
     align-items: center;
-`;
+`
 
 const ArrowButton = styled.button<ArrowButtonProps>`
     position: absolute;
@@ -73,7 +77,9 @@ const ArrowButton = styled.button<ArrowButtonProps>`
     background-color: ${(props) =>
         props.$isDark ? themes.colors.primaryDark : themes.colors.primary};
     color: ${(props) =>
-        props.$isDark ? themes.colors.highlightPrimary : themes.colors.primaryLight};
+        props.$isDark
+            ? themes.colors.highlightPrimary
+            : themes.colors.primaryLight};
     border: none;
     border-radius: ${themes.radius};
     width: 1.8rem;
@@ -87,39 +93,44 @@ const ArrowButton = styled.button<ArrowButtonProps>`
     &:focus {
         outline: 2px solid ${themes.colors.primary};
     }
-`;
+`
 
 const ArrowLeft = styled(ArrowButton)`
     left: 10px;
     &:hover {
         opacity: 45%;
     }
-`;
+`
 
 const ArrowRight = styled(ArrowButton)`
     right: 10px;
     &:hover {
         opacity: 45%;
     }
-`;
+`
 
-const Carousel: FC<CarouselProps> = ({ children, isDark = false, visibleItems = 1 }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+const Carousel: FC<CarouselProps> = ({
+    children,
+    isDark = false,
+    visibleItems = 1,
+}) => {
+    const [currentIndex, setCurrentIndex] = useState(0)
 
-    const totalItems = children.length;
-    const totalGroups = totalItems > visibleItems ? totalItems - visibleItems + 1 : 1;
+    const totalItems = children.length
+    const totalGroups =
+        totalItems > visibleItems ? totalItems - visibleItems + 1 : 1
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex > 0 ? prevIndex - 1 : totalGroups - 1
-        );
-    };
+            prevIndex > 0 ? prevIndex - 1 : totalGroups - 1,
+        )
+    }
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex < totalGroups - 1 ? prevIndex + 1 : 0
-        );
-    };
+            prevIndex < totalGroups - 1 ? prevIndex + 1 : 0,
+        )
+    }
 
     return (
         <CarouselWrapper>
@@ -136,7 +147,10 @@ const Carousel: FC<CarouselProps> = ({ children, isDark = false, visibleItems = 
                 <ArrowLeft onClick={handlePrev} $isDark={isDark}>
                     {'<'}
                 </ArrowLeft>
-                <CarouselContent currentIndex={currentIndex} visibleItems={visibleItems}>
+                <CarouselContent
+                    currentIndex={currentIndex}
+                    visibleItems={visibleItems}
+                >
                     {children.map((child, index) => (
                         <CarouselItem key={index} visibleItems={visibleItems}>
                             {child}
@@ -148,7 +162,7 @@ const Carousel: FC<CarouselProps> = ({ children, isDark = false, visibleItems = 
                 </ArrowRight>
             </CarouselContainer>
         </CarouselWrapper>
-    );
-};
+    )
+}
 
-export default Carousel;
+export default Carousel
