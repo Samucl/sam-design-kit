@@ -20,10 +20,15 @@ const CarouselWrapper = styled.div`
     flex-direction: column;
 `
 
-const IndicatorContainer = styled.div`
+const IndicatorContainer = styled.div<{ $isDark?: boolean }>`
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    border-radius: 50%;
+    background-color: ${(props) =>
+        props.$isDark ? themes.colors.primaryDark : themes.colors.primary};
+    padding: 7px 5px;
+    border-radius: ${themes.radius};
 `
 
 const Indicator = styled.div<{ isActive: boolean; $isDark?: boolean }>`
@@ -35,10 +40,10 @@ const Indicator = styled.div<{ isActive: boolean; $isDark?: boolean }>`
         props.isActive
             ? props.$isDark
                 ? themes.colors.highlightPrimary
-                : themes.colors.primary
+                : themes.colors.primaryLight
             : props.$isDark
-              ? themes.colors.primaryDark
-              : themes.colors.secondary};
+              ? themes.colors.primary
+              : themes.colors.primaryDark};
 `
 
 const CarouselContainer = styled.div`
@@ -134,7 +139,7 @@ const Carousel: FC<CarouselProps> = ({
 
     return (
         <CarouselWrapper>
-            <IndicatorContainer>
+            <IndicatorContainer $isDark={isDark}>
                 {Array.from({ length: totalGroups }).map((_, index) => (
                     <Indicator
                         key={index}

@@ -151,7 +151,8 @@ const FontTypeWrapper = styled.div`
 `;
 
 const IconsWrapper = styled.div`
-    background-color: ${themes.colors.white};
+    background: linear-gradient(180deg, ${themes.colors.secondary} 0%,
+        ${themes.colors.highlightSecondary} 100%);
     border-radius: ${themes.radius};
     width: 100%;
     height: 100%;
@@ -170,6 +171,8 @@ const IconWrapper = styled.div`
     justify-content: center;
     background-color: ${themes.colors.white};
     padding: 10px;
+    width: 120px;
+    border-radius: ${themes.radius};
     padding-bottom: 5px;
 `;
 

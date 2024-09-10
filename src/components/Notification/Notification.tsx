@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { themes } from '../../themes'
 import { darkenColor } from '../utils'
 import '../../themes/fonts.css'
+import { Info, Success, Warning, Error } from '../../icons/tsx'
 
 interface Props {
     children: ReactNode
@@ -26,11 +27,11 @@ const StyledNotification = styled.div<{
     justify-content: center;
     align-items: center;
     font-family: 'Rethink Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1rem;
-    color: ${(props) => darkenColor(typeColors[props.$type], 200)};
-    background-color: ${(props) => typeColors[props.$type]};
-    border: 3px solid ${(props) => darkenColor(typeColors[props.$type], 30)};
+    color: ${themes.colors.white};
+    background-color: ${(props) => darkenColor(typeColors[props.$type], 70)};
+    border: 3px solid ${(props) => darkenColor(typeColors[props.$type], -70)};
     border-radius: ${themes.radius};
     width: max-content;
     gap: 10px;
@@ -44,11 +45,19 @@ const TypeLabel = styled.div<{
     top: -13px;
     left: 0px;
     padding: 2px 5px;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 0.7rem;
-    color: ${(props) => darkenColor(typeColors[props.$type], 200)};
-    background-color: ${(props) => typeColors[props.$type]};
-    border-radius: 10px;
+    color: ${themes.colors.white};
+    background-color: ${(props) => darkenColor(typeColors[props.$type], 70)};
+    border-radius: 10px 10px 0 0;
+`
+
+const Divider = styled.div`
+    width: 1px;
+    height: 40px;
+    background-color: ${themes.colors.white};
+    opacity: 0.3;
+    margin-right: 5px;
 `
 
 const Notification: FC<Props> = ({ children, type = 'neutral', id }) => {
@@ -57,8 +66,19 @@ const Notification: FC<Props> = ({ children, type = 'neutral', id }) => {
             {type != 'neutral' && (
                 <>
                     <TypeLabel $type={type}>{type}</TypeLabel>
-                    <text>asd</text>
-                    <text>|</text>
+                    {type == 'success' && (
+                        <Success color={themes.colors.white} size='50px' />
+                    )}
+                    {type == 'warning' && (
+                        <Warning color={themes.colors.white} size='50px' />
+                    )}
+                    {type == 'info' && (
+                        <Info color={themes.colors.white} size='50px' />
+                    )}
+                    {type == 'error' && (
+                        <Error color={themes.colors.white} size='50px' />
+                    )}
+                    <Divider />
                 </>
             )}
 
