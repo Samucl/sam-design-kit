@@ -33,7 +33,7 @@ const StyledNotification = styled.div<{
     background-color: ${(props) => darkenColor(typeColors[props.$type], 70)};
     border: 3px solid ${(props) => darkenColor(typeColors[props.$type], -70)};
     border-radius: ${themes.radius};
-    width: max-content;
+    max-width: max-content;
     gap: 10px;
     padding: 10px 15px;
 `

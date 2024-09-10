@@ -22,6 +22,12 @@ const CarouselItemWrapper = styled.div`
     }
 `;
 
+export const MobileText = styled.div`
+    @media (max-width: 768px) {
+        font-size: 2.8vw;
+    }
+`;
+
 export const CarouselItem = ({label} : {label: string}) => {
 
     return (
