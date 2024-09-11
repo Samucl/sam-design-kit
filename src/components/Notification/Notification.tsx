@@ -8,6 +8,7 @@ import { Info, Success, Warning, Error } from '../../icons/tsx'
 interface Props {
     children: ReactNode
     type: 'success' | 'warning' | 'error' | 'info' | 'neutral'
+    isTypeLabel?: boolean
     id?: string
 }
 
@@ -35,12 +36,14 @@ const StyledNotification = styled.div<{
     border-radius: ${themes.radius};
     max-width: max-content;
     gap: 10px;
-    padding: 10px 15px;
+    padding: 10px 12px;
 `
 
 const TypeLabel = styled.div<{
     $type: 'success' | 'warning' | 'error' | 'info' | 'neutral'
+    $isTypeLabel: boolean
 }>`
+    display: ${(props) => (props.$isTypeLabel ? 'block' : 'none')};
     position: absolute;
     top: -13px;
     left: 0px;
@@ -54,29 +57,35 @@ const TypeLabel = styled.div<{
 
 const Divider = styled.div`
     width: 1px;
-    height: 40px;
+    height: 30px;
     background-color: ${themes.colors.white};
     opacity: 0.3;
-    margin-right: 5px;
 `
 
-const Notification: FC<Props> = ({ children, type = 'neutral', id }) => {
+const Notification: FC<Props> = ({
+    children,
+    type = 'neutral',
+    id,
+    isTypeLabel = true,
+}) => {
     return (
         <StyledNotification $type={type} id={id}>
             {type != 'neutral' && (
                 <>
-                    <TypeLabel $type={type}>{type}</TypeLabel>
+                    <TypeLabel $type={type} $isTypeLabel={isTypeLabel}>
+                        {type}
+                    </TypeLabel>
                     {type == 'success' && (
-                        <Success color={themes.colors.white} size='50px' />
+                        <Success color={themes.colors.white} size='30px' />
                     )}
                     {type == 'warning' && (
-                        <Warning color={themes.colors.white} size='50px' />
+                        <Warning color={themes.colors.white} size='30px' />
                     )}
                     {type == 'info' && (
-                        <Info color={themes.colors.white} size='50px' />
+                        <Info color={themes.colors.white} size='30px' />
                     )}
                     {type == 'error' && (
-                        <Error color={themes.colors.white} size='50px' />
+                        <Error color={themes.colors.white} size='30px' />
                     )}
                     <Divider />
                 </>

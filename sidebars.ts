@@ -28,7 +28,9 @@ const sidebars: SidebarsConfig = {
     'Components/Expander',
     'Components/Carousel',
     'Components/Notification',
-    //'Components/Text',
+    'Components/Text',
+    //'Components/Tabs',
+    //'Components/Radio',
     'Components/Loader',
   ],
 };

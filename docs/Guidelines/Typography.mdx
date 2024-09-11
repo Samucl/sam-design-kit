@@ -4,6 +4,7 @@ pagination_next: null
 pagination_prev: null
 ---
 
+import { Notification } from '../../src'
 import { PropsDropdown } from '../Components/utils/ComponentButton'
 import { FontWeights, FontScales } from './utils/Guidelines.styles'
 
@@ -13,7 +14,15 @@ import { FontWeights, FontScales } from './utils/Guidelines.styles'
 
 <hr/>
 
+<div style={{margin: "10px 0 15px 0"}}>
+    <Notification isTypeLabel={false} type='info'>
+        <span style={{fontSize: "0.8rem"}}>Please refer to <a style={{color: "#50CBFF"}} href="/docs/Components/Text">Text component</a> on the typography usage</span>
+    </Notification>
+</div>
+
 <PropsDropdown value="Figma file" link="/docs/Guidelines/Typography"/>
+
+
 
 ## Font
 

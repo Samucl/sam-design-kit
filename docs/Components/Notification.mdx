@@ -41,6 +41,12 @@ import { MobileText } from './utils/Components.styles'
     <td>The content displayed in the Notification</td>
   </tr>
   <tr>
+    <td>isTypeLabel</td>
+    <td>boolean</td>
+    <td>true</td>
+    <td>Shows or hides the type label</td>
+  </tr>
+  <tr>
     <td>id</td>
     <td>string</td>
     <td>N/A</td>
@@ -77,4 +83,10 @@ import { MobileText } from './utils/Components.styles'
 
 <Codeblock codeString={`<Notification type='neutral'>Neutral</Notification>`}>
     <Notification type='neutral'><MobileText>This is a neutral message</MobileText></Notification>
+</Codeblock>
+
+## Hidden type label
+
+<Codeblock codeString={`<Notification type='success' isTypeLabel={false}>Success</Notification>`}>
+    <Notification type='success' isTypeLabel={false}><MobileText>This is a success message</MobileText></Notification>
 </Codeblock>

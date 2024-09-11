@@ -1,0 +1,84 @@
+---
+title: Text
+pagination_next: null
+pagination_prev: null
+---
+
+import { Text } from '../../src/components';
+import { themes } from '../../src/themes'
+import Codeblock from './utils/Codeblock'
+import { PropsDropdown } from './utils/ComponentButton'
+
+<hr/>
+
+<p>The Text component provides flexible and customizable typography styles, allowing users to apply predefined font variants and colors for consistent, accessible text formatting across the application.</p>
+
+<hr/>
+
+<PropsDropdown value="Figma file" link="">
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>children</td>
+    <td>ReactNode</td>
+    <td>N/A</td>
+    <td>The content displayed in the Text</td>
+  </tr>
+  <tr>
+    <td>variant</td>
+    <td>'heading-1'
+    | 'heading-2'
+    | 'heading-3'
+    | 'subtitle'
+    | 'body-1-semibold'
+    | 'body-1-regular'
+    | 'body-2-semibold'
+    | 'body-2-regular'</td>
+    <td><strong>required</strong></td>
+    <td>The variant of the Text</td>
+  </tr>
+   <tr>
+    <td>color</td>
+    <td>string</td>
+    <td>themes.colors.primaryDark</td>
+    <td>The color of the text</td>
+  </tr>
+</PropsDropdown>
+
+## Variant
+
+<Codeblock codeString={`<Text variant="heading-1">Heading 1</Text>
+<Text variant="heading-2">Heading 2</Text>
+<Text variant="heading-3">Heading 3</Text>
+<Text variant="subtitle">Subtitle</Text>
+<Text variant="body-1-semibold">Body 1 (semibold)</Text>
+<Text variant="body-1-regular">Body 1 (regular)</Text>
+<Text variant="body-2-semibold">Body 2 (semibold)</Text>
+<Text variant="body-2-regular">Body 2 (regular)</Text>`}>
+  <div style={{display: "flex", flexDirection: "column"}}>
+    <Text variant="heading-1">Heading 1</Text>
+    <Text variant="heading-2">Heading 2</Text>
+    <Text variant="heading-3">Heading 3</Text>
+    <Text variant="subtitle">Subtitle</Text>
+    <Text variant="body-1-semibold">Body 1 (semibold)</Text>
+    <Text variant="body-1-regular">Body 1 (regular)</Text>
+    <Text variant="body-2-semibold">Body 2 (semibold)</Text>
+    <Text variant="body-2-regular">Body 2 (regular)</Text>
+  </div>
+</Codeblock>
+
+## Color
+
+<Codeblock codeString={`<Text variant="heading-1" color={themes.colors.primary}>Heading 1</Text>
+<Text variant="heading-2" color={themes.colors.secondary}>Heading 2</Text>
+<Text variant="heading-3" color={themes.colors.highlightSecondary}>Heading 3</Text>`}>
+  <div style={{display: "flex", flexDirection: "column"}}>
+    <Text variant="heading-1" color={themes.colors.primary}>Heading 1</Text>
+    <Text variant="heading-2" color={themes.colors.secondary}>Heading 2</Text>
+    <Text variant="heading-3" color={themes.colors.highlightSecondary}>Heading 3</Text>
+  </div>
+</Codeblock>
