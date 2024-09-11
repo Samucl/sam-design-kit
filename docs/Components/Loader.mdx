@@ -4,36 +4,28 @@ pagination_next: null
 pagination_prev: null
 ---
 
-import { Loader } from '../../src/components';
-import { DimBackground } from './utils/Components.styles'
+import { PageLoaderExample } from './utils/Components.styles'
 import Codeblock from './utils/Codeblock'
+import { ElementLoader } from './../../src'
 import { PropsDropdown } from './utils/ComponentButton'
 
 <hr/>
 
-<p>Loader</p>
+<p>Loader provides a visual cue that content or actions are being processed, keeping users informed while they wait for completion.</p>
 
 <hr/>
 
 <PropsDropdown value="Figma file" link="">
-  <tr>
-    <th>Prop</th>
-    <th>Type</th>
-    <th>Default</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>children</td>
-    <td>ReactNode</td>
-    <td>N/A</td>
-    <td>The content displayed in the Button</td>
-  </tr>
 </PropsDropdown>
 
-## Default
+## Page Loader
 
-<Codeblock codeString={`Loader`}>
-    <DimBackground>asd</DimBackground>
-    <Loader top='120px'/ >
+<Codeblock codeString={`<PageLoader />`}>
+    <PageLoaderExample / >
 </Codeblock>
 
+## Element Loader
+
+<Codeblock codeString={`<ElementLoader />`}>
+    <ElementLoader / >
+</Codeblock>

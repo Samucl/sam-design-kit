@@ -29,7 +29,7 @@ const sidebars: SidebarsConfig = {
     'Components/Carousel',
     'Components/Notification',
     //'Components/Text',
-    //'Components/Loader',
+    'Components/Loader',
   ],
 };
 

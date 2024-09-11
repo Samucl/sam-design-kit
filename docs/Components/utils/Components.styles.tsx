@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { themes } from "../../../src";
+import { PageLoader, themes } from "../../../src";
+import { StyledButton } from "../../Guidelines/utils/Guidelines.styles";
+import { useState } from "react";
 
 export const DimBackground = styled.div`
     position: absolute;
@@ -36,4 +38,19 @@ export const CarouselItem = ({label} : {label: string}) => {
         </CarouselItemWrapper>
     );
 
+}
+
+export const PageLoaderExample = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+            <StyledButton onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? "Click to hide Page Loader" : "Click to show Page Loader"}
+            </StyledButton>
+        </div>
+        {isOpen && <PageLoader />}
+        
+        </>
+    );
 }
