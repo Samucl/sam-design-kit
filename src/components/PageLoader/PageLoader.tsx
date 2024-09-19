@@ -2,6 +2,10 @@ import { FC } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { themes } from '../../themes'
 
+interface Props {
+    className?: string
+}
+
 const loadingAnimation = keyframes`
   0% {
     transform: translateX(-100%);
@@ -37,9 +41,9 @@ const LoadingBar = styled.div`
     animation: ${loadingAnimation} 1.5s infinite linear;
 `
 
-const PageLoader: FC = () => {
+const PageLoader: FC<Props> = ({ className }) => {
     return (
-        <LoaderWrapper>
+        <LoaderWrapper className={className}>
             <LoadingBar />
         </LoaderWrapper>
     )

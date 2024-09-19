@@ -29,6 +29,18 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
     <td>Sets text for the Tooltip</td>
   </tr>
   <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Unique indentifier for Tooltip</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Custom className</td>
+  </tr>
+  <tr>
     <td>children</td>
     <td>React.ReactNode</td>
     <td><strong>required</strong></td>
@@ -47,6 +59,12 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
     <td>The option for dark mode</td>
   </tr>
   <tr>
+    <td>setOpen</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Always displays tooltip</td>
+  </tr>
+  <tr>
     <td>hidePointer</td>
     <td>boolean</td>
     <td>false</td>
@@ -55,7 +73,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </PropsDropdown>
 
 ## Top
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="top">
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" position="top">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="top">
@@ -64,7 +82,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </Codeblock>
 
 ## Bottom
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="bottom">
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" position="bottom">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="bottom">
@@ -73,7 +91,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </Codeblock>
 
 ## Left
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="left">
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" position="left">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="left">
@@ -82,7 +100,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </Codeblock>
 
 ## Right
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" position="right">
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" position="right">
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" position="right">
@@ -91,7 +109,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </Codeblock>
 
 ## Open
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" setOpen={true}>
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" setOpen={true}>
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" setOpen={true}>
@@ -100,7 +118,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </Codeblock>
 
 ## Dark
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" isDark={true}>
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" isDark={true}>
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" isDark={true}>
@@ -109,7 +127,7 @@ import { StyledButton } from '../Guidelines/utils/Guidelines.styles'
 </Codeblock>
 
 ## Hidden pointer
-<Codeblock isCenter={true} codeString={`<Tooltip text="This is the tooltip content!" hidePointer={true}>
+<Codeblock isCenter={true} codeString={`<Tooltip value="This is the tooltip content!" hidePointer={true}>
     <label>Hover Me</label>
 </Tooltip>`}>
   <Tooltip value="This is the tooltip content!" hidePointer={true}>

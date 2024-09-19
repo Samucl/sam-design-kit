@@ -14,6 +14,8 @@ interface TextProps {
         | 'body-2-regular'
     color?: string
     children: React.ReactNode
+    id?: string
+    className?: string
 }
 
 const getTextStyle = (variant: string) => {
@@ -34,9 +36,16 @@ const Text: FC<TextProps> = ({
     variant,
     color = themes.colors.primaryDark,
     children,
+    id,
+    className,
 }) => {
     return (
-        <StyledText variant={variant} color={color}>
+        <StyledText
+            variant={variant}
+            color={color}
+            id={id}
+            className={className}
+        >
             {children}
         </StyledText>
     )

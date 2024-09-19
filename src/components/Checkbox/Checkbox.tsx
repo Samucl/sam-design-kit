@@ -9,8 +9,9 @@ interface Props {
     disabled?: boolean
     id?: string
     name?: string
+    className?: string
     checked?: boolean
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const StyledCheckboxWrapper = styled.label<{
@@ -89,6 +90,7 @@ const Checkbox: FC<Props> = ({
     checked,
     onChange,
     children,
+    className,
 }) => {
     return (
         <StyledCheckboxWrapper $isDark={isDark} $disabled={disabled}>
@@ -99,7 +101,9 @@ const Checkbox: FC<Props> = ({
                 id={id}
                 name={name}
                 checked={checked}
+                aria-checked={checked}
                 onChange={onChange}
+                className={className}
             />
             {children}
         </StyledCheckboxWrapper>

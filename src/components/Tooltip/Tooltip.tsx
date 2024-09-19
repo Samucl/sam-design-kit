@@ -10,6 +10,8 @@ interface Props {
     isDark?: boolean
     setOpen?: boolean
     hidePointer?: boolean
+    id?: string
+    className?: string
 }
 
 const TooltipWrapper = styled.div`
@@ -157,6 +159,8 @@ const Tooltip: FC<Props> = ({
     isDark = false,
     setOpen = false,
     hidePointer = false,
+    className,
+    id,
 }) => {
     return (
         <TooltipWrapper>
@@ -166,6 +170,8 @@ const Tooltip: FC<Props> = ({
                 $isDark={isDark}
                 $setOpen={setOpen}
                 $hidePointer={hidePointer}
+                className={className}
+                id={id}
             >
                 {text}
             </TooltipContent>
