@@ -29,13 +29,13 @@ import { MobileText } from './utils/Components.styles'
     <td>The content displayed in the Notification</td>
   </tr>
   <tr>
-    <td>type</td>
-    <td>ReactNode</td>
+    <td>className</td>
+    <td>string</td>
     <td>N/A</td>
-    <td>The content displayed in the Notification</td>
+    <td>Custom className</td>
   </tr>
   <tr>
-    <td>children</td>
+    <td>type</td>
     <td>'success' | 'warning' | 'error' | 'info' | 'neutral'</td>
     <td><strong>required</strong></td>
     <td>The content displayed in the Notification</td>
@@ -57,36 +57,36 @@ import { MobileText } from './utils/Components.styles'
 
 ## Success
 
-<Codeblock codeString={`<Notification type='success'>Success</Notification>`}>
+<Codeblock codeString={`<Notification type='success'>This is a success message</Notification>`}>
     <Notification type='success'><MobileText>This is a success message</MobileText></Notification>
 </Codeblock>
 
 ## Warning
 
-<Codeblock codeString={`<Notification type='warning'>Warning</Notification>`}>
+<Codeblock codeString={`<Notification type='warning'>This is a warning message</Notification>`}>
     <Notification type='warning'><MobileText>This is a warning message</MobileText></Notification>
 </Codeblock>
 
 ## Error
 
-<Codeblock codeString={`<Notification type='error'>Error</Notification>`}>
+<Codeblock codeString={`<Notification type='error'>This is a error message</Notification>`}>
     <Notification type='error'><MobileText>This is a error message</MobileText></Notification>
 </Codeblock>
 
 ## Info
 
-<Codeblock codeString={`<Notification type='info'>Info</Notification>`}>
+<Codeblock codeString={`<Notification type='info'>This is a info message</Notification>`}>
     <Notification type='info'><MobileText>This is a info message</MobileText></Notification>
 </Codeblock>
 
 ## Neutral
 
-<Codeblock codeString={`<Notification type='neutral'>Neutral</Notification>`}>
+<Codeblock codeString={`<Notification type='neutral'>This is a neutral message</Notification>`}>
     <Notification type='neutral'><MobileText>This is a neutral message</MobileText></Notification>
 </Codeblock>
 
 ## Hidden type label
 
-<Codeblock codeString={`<Notification type='success' isTypeLabel={false}>Success</Notification>`}>
+<Codeblock codeString={`<Notification type='success' isTypeLabel={false}>This is a success message</Notification>`}>
     <Notification type='success' isTypeLabel={false}><MobileText>This is a success message</MobileText></Notification>
 </Codeblock>

@@ -157,6 +157,7 @@ const IconsWrapper = styled.div`
     width: 100%;
     height: 100%;
     padding: 10px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

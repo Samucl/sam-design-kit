@@ -10,6 +10,7 @@ interface Props {
     type: 'success' | 'warning' | 'error' | 'info' | 'neutral'
     isTypeLabel?: boolean
     id?: string
+    className?: string
 }
 
 const typeColors = {
@@ -67,9 +68,10 @@ const Notification: FC<Props> = ({
     type = 'neutral',
     id,
     isTypeLabel = true,
+    className,
 }) => {
     return (
-        <StyledNotification $type={type} id={id}>
+        <StyledNotification $type={type} id={id} className={className}>
             {type != 'neutral' && (
                 <>
                     <TypeLabel $type={type} $isTypeLabel={isTypeLabel}>

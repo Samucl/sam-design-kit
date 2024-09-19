@@ -10,6 +10,8 @@ interface Props {
     onClose: () => void
     position?: 'left' | 'right' | 'top' | 'bottom'
     isDark?: boolean
+    id?: string
+    className?: string
 }
 
 const DrawerWrapper = styled.div<{
@@ -138,6 +140,8 @@ const Drawer: FC<Props> = ({
     onClose,
     position = 'right',
     isDark = false,
+    id,
+    className,
 }) => {
     return (
         <>
@@ -145,6 +149,8 @@ const Drawer: FC<Props> = ({
                 isOpen={isOpen}
                 onClick={onClose}
                 aria-hidden='true'
+                className={className}
+                id={id}
             />
             <DrawerWrapper
                 isOpen={isOpen}

@@ -4,9 +4,11 @@ import { themes } from '../../themes'
 import '../../themes/fonts.css'
 
 interface CarouselProps {
+    id?: string
     children: ReactNode[]
     isDark?: boolean
     visibleItems?: number
+    className?: string
 }
 
 interface ArrowButtonProps {
@@ -118,6 +120,8 @@ const Carousel: FC<CarouselProps> = ({
     children,
     isDark = false,
     visibleItems = 1,
+    id,
+    className,
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -138,7 +142,7 @@ const Carousel: FC<CarouselProps> = ({
     }
 
     return (
-        <CarouselWrapper>
+        <CarouselWrapper id={id} className={className}>
             <IndicatorContainer $isDark={isDark}>
                 {Array.from({ length: totalGroups }).map((_, index) => (
                     <Indicator

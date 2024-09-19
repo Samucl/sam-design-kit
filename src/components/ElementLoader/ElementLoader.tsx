@@ -3,6 +3,10 @@ import styled, { keyframes } from 'styled-components'
 import { themes } from '../../themes'
 import { darkenColor } from '../utils'
 
+interface Props {
+    className?: string
+}
+
 const pulseAnimation = keyframes`
   0%, 100% {
     transform: scale(1);
@@ -46,9 +50,9 @@ const Pill = styled.div`
     }
 `
 
-const ElementLoader: FC = () => {
+const ElementLoader: FC<Props> = ({ className }) => {
     return (
-        <LoaderWrapper>
+        <LoaderWrapper className={className}>
             <Pill />
             <Pill />
             <Pill />

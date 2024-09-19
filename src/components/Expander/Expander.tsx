@@ -11,6 +11,8 @@ interface ExpanderProps {
     children: ReactNode
     isOpenInitially?: boolean
     theme?: Theme
+    id?: string
+    className?: string
 }
 
 const ExpanderContainer = styled.div`
@@ -79,13 +81,15 @@ const Expander: FC<ExpanderProps> = ({
     children,
     isOpenInitially = false,
     theme,
+    id,
+    className,
 }) => {
     const [isOpen, setIsOpen] = useState(isOpenInitially)
 
     const toggleExpander = () => setIsOpen(!isOpen)
 
     return (
-        <ExpanderContainer>
+        <ExpanderContainer id={id} className={className}>
             <ExpanderHeader onClick={toggleExpander} $theme={theme}>
                 {title}
                 {isOpen ? (

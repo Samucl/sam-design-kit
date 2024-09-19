@@ -9,7 +9,9 @@ interface Props {
     disabled?: boolean
     id?: string
     name?: string
+    className?: string
     onClick?: (e: MouseEvent<HTMLElement>) => void
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void
 }
 
 const StyledButton = styled.button<{ $isDark?: boolean }>`
@@ -40,9 +42,10 @@ const StyledButton = styled.button<{ $isDark?: boolean }>`
 
 const Button: FC<Props> = ({
     isDark = false,
-    disabled,
+    disabled = false,
     children,
     onClick,
+    onMouseDown,
     id,
     name,
 }) => {
@@ -51,6 +54,7 @@ const Button: FC<Props> = ({
             $isDark={isDark}
             disabled={disabled}
             onClick={onClick}
+            onMouseDown={onMouseDown}
             id={id}
             name={name}
         >

@@ -15,6 +15,10 @@ interface Props {
     status?: Status
     value?: string
     type?: string
+    id?: string
+    name?: string
+    required?: boolean
+    className?: string
 }
 
 const InputWrapper = styled.div<{
@@ -186,6 +190,10 @@ const Input: FC<Props> = ({
     status,
     value = '',
     type,
+    id,
+    name,
+    required,
+    className,
 }) => {
     const [inputValue, setInputValue] = useState(value)
     const [showPassword, setShowPassword] = useState(false)
@@ -205,6 +213,7 @@ const Input: FC<Props> = ({
                 $isDark={isDark}
                 $isLimit={inputValue.length === charLimit}
                 $status={status}
+                className={className}
             >
                 <PlaceholderLabel>{placeholder}</PlaceholderLabel>
                 <StyledInput
@@ -214,6 +223,9 @@ const Input: FC<Props> = ({
                     maxLength={charLimit}
                     disabled={disabled}
                     type={showPassword && type === 'password' ? 'text' : type}
+                    id={id}
+                    name={name}
+                    required={required}
                 />
                 {charLimit && (
                     <AmountLabel>{`${inputValue.length}/${charLimit}`}</AmountLabel>

@@ -13,11 +13,26 @@ import { IconsExample, Icons, StyledLabel } from './utils/Guidelines.styles'
 
 <hr/>
 
-<PropsDropdown value="Figma file" link="https://www.figma.com/design/UHPi7heCn4yoYWgu1eTThx/SDK---Design-System?node-id=2084-6"/>
-
-<div style={{margin: "20px 0"}}>
-    <StyledLabel > Icons have a size prop with a default value of 24px</StyledLabel>
-</div>
+<PropsDropdown value="Figma file" link="https://www.figma.com/design/UHPi7heCn4yoYWgu1eTThx/SDK---Design-System?node-id=2084-6">
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>string</td>
+    <td>24px</td>
+    <td>Custom Icon size</td>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td>string</td>
+    <td>#000000</td>
+    <td>Custom Icon color</td>
+  </tr>
+</PropsDropdown>
 
 <Icons/>
 

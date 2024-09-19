@@ -1,41 +1,54 @@
-# Website
+# Sam Design Kit (SDK)
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Documentation for SDK: https://sam-design-kit.vercel.app
 
-### Installation
+## Installation
 
-```
-$ yarn
-```
-
-### Local Development
+#### Using npm:
 
 ```
-$ yarn start
+npm install sam-design-kit
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Once installed, ensure that your project is configured with the correct dependencies, especially if you're using other libraries like React and styled-components.
 
-### Build
+#### Peer dependencies
 
-```
-$ yarn build
-```
+To ensure compatibility with your project, you must have the following peer dependencies installed
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+ - <strong>React</strong> (version ^18.x)
+ - <strong>React DOM</strong> (version ^18.x)
+ - <strong>styled-components</strong> (version ^6.1.8 or above)
 
-### Deployment
-
-Using SSH:
+If you don't have these installed, run:
 
 ```
-$ USE_SSH=true yarn deploy
+npm install react react-dom styled-components
 ```
 
-Not using SSH:
+## Basic usage
+
+Once the library is installed, you can import and use the components in your project. Here’s an example of how to use a component:
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+import React from 'react';
+import { Button, Text } from 'sam-design-kit';
+
+const App = () => (
+  <div>
+    <Button>
+        <Text variant="body-1-regular">Click me</Text>
+    </Button>
+  </div>
+);
+
+export default App;
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Basic usage
+
+This package is built with Rollup, and it supports both CommonJS (cjs) and ES Modules (esm) out of the box. Depending on your project's module resolution, the appropriate version will be loaded:
+
+ - CommonJS: `dist/cjs/index.js`
+ - ES Module: `dist/esm/bundle.js`
+ - TypeScript Definitions: `dist/index.d.ts`

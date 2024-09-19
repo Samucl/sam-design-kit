@@ -15,7 +15,25 @@ import { PropsDropdown } from './utils/ComponentButton'
 
 <hr/>
 
-<PropsDropdown value="Figma file" link="/">
+<PropsDropdown value="Figma file" link="">
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Unique indentifier for Carousel</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>N/A</td>
+    <td>Custom className</td>
+  </tr>
   <tr>
     <td>children</td>
     <td>ReactNode</td>
@@ -39,11 +57,11 @@ import { PropsDropdown } from './utils/ComponentButton'
 ## Default
 
 <Codeblock codeString={`<Carousel>
-    <CarouselItem label="Carousel item 1"/>
-    <CarouselItem label="Carousel item 2"/>
-    <CarouselItem label="Carousel item 3"/>
-    <CarouselItem label="Carousel item 4"/>
-    <CarouselItem label="Carousel item 5"/>
+    <text>Carousel item 1</text>
+    <text>Carousel item 2</text>
+    <text>Carousel item 3</text>
+    <text>Carousel item 4</text>
+    <text>Carousel item 5</text>
 </Carousel>`}>
     <Carousel>
         <CarouselItem label="Carousel item 1"/>
@@ -57,11 +75,11 @@ import { PropsDropdown } from './utils/ComponentButton'
 ## Dark
 
 <Codeblock codeString={`<Carousel isDark>
-    <CarouselItem label="Carousel item 1"/>
-    <CarouselItem label="Carousel item 2"/>
-    <CarouselItem label="Carousel item 3"/>
-    <CarouselItem label="Carousel item 4"/>
-    <CarouselItem label="Carousel item 5"/>
+    <text>Carousel item 1</text>
+    <text>Carousel item 2</text>
+    <text>Carousel item 3</text>
+    <text>Carousel item 4</text>
+    <text>Carousel item 5</text>
 </Carousel>`}>
     <Carousel isDark>
         <CarouselItem label="Carousel item 1"/>
@@ -74,11 +92,11 @@ import { PropsDropdown } from './utils/ComponentButton'
 
 ## Visible items
 <Codeblock codeString={`<Carousel visibleItems={3}>
-    <CarouselItem label="Carousel item 1"/>
-    <CarouselItem label="Carousel item 2"/>
-    <CarouselItem label="Carousel item 3"/>
-    <CarouselItem label="Carousel item 4"/>
-    <CarouselItem label="Carousel item 5"/>
+    <text>Carousel item 1</text>
+    <text>Carousel item 2</text>
+    <text>Carousel item 3</text>
+    <text>Carousel item 4</text>
+    <text>Carousel item 5</text>
 </Carousel>`}>
     <Carousel visibleItems={3}>
         <CarouselItem label="Carousel item 1"/>
