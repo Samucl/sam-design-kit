@@ -28,6 +28,12 @@ aside li:first-child a {
     color: var(--sdk-color-primary-dark);
 }
 
+@media (max-width: 768px) {
+    :root {
+        --ifm-spacing-horizontal: 10px !important;
+    }
+}
+
 :root {
     /*Sam Design Kit variables*/
     --sdk-color-primary-dark: #0a2a15;
