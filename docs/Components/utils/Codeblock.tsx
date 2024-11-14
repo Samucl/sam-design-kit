@@ -34,9 +34,10 @@ const CodeBlockToggle = styled.button`
   cursor: pointer;
   border-radius: ${themes.radius};
   display: block;
+  color: ${themes.colors.primaryDark};
 `
 
-const StyledCodeBlock = styled(CodeBlock)<{ $isVisible?: boolean; }>`
+const StyledCodeBlock = styled(CodeBlock) <{ $isVisible?: boolean; }>`
   border-radius: 0 0 ${themes.radius} ${themes.radius};
   max-height: 0;
   overflow: hidden;
@@ -49,7 +50,7 @@ const StyledCodeBlock = styled(CodeBlock)<{ $isVisible?: boolean; }>`
   `}
 `
 
-const Codeblock: React.FC<Props> = ({ children, codeString, isCenter=false }) => {
+const Codeblock: React.FC<Props> = ({ children, codeString, isCenter = false }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -58,11 +59,11 @@ const Codeblock: React.FC<Props> = ({ children, codeString, isCenter=false }) =>
 
   return (
     <>
-    {children &&
-      <Box $isVisible={isVisible} $isCenter={isCenter}>
-        {children}
-      </Box>
-    }
+      {children &&
+        <Box $isVisible={isVisible} $isCenter={isCenter}>
+          {children}
+        </Box>
+      }
       <StyledCodeBlock language="jsx" $isVisible={isVisible}>
         {codeString}
       </StyledCodeBlock>
